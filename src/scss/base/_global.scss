@@ -1,0 +1,13 @@
+@use '../abstracts/mixins' as *;
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  @include font-Inter-400;
+}
