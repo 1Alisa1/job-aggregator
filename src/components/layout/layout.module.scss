@@ -1,0 +1,54 @@
+@use '/src/scss/abstracts/variables' as *;
+@use '/src/scss/abstracts/mixins' as *;
+
+header {
+  @include large {
+    @include wrapper(map-get($width, 'large'));
+    height: 84px;
+    margin-bottom: 40px;
+  }
+  @include medium {
+    @include wrapper(map-get($width, 'medium'));
+    height: 84px;
+    margin-bottom: 40px;
+  }
+  @include small {
+    @include wrapper-small;
+    justify-content: space-between;
+    height: 60px;
+    margin-bottom: 30px;
+  }
+  display: flex;
+  align-items: center;
+  .headerLogo {
+    width: 141px;
+    height: 36px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    a:focus {
+      outline: none;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .headerNav {
+    margin-left: 280px;
+    @include medium {
+      margin-left: 86px;
+    }
+    @include small {
+      display: none;
+    }
+  }
+  .navBtn {
+    display: none;
+    @include small {
+      display: block;
+      width: 21px;
+      height: 19px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+  }
+}
