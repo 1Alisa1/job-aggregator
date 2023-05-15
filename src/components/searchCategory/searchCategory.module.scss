@@ -1,0 +1,14 @@
+@use "/src/scss/abstracts/variables" as *;
+@use "/src/scss/abstracts/mixins" as *;
+
+.category {
+  margin-bottom: 20px;
+  .optionName {
+    display: block;
+    margin-bottom: 8px;
+    @include font-Inter-700;
+    font-size: 16px;
+    line-height: 19px;
+    color: map-get($color, "black");
+  }
+}

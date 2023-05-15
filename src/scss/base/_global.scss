@@ -1,7 +1,9 @@
 @use '../abstracts/mixins' as *;
+@use "/src/scss/abstracts/variables" as *;
 
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 
 *, *::before, *::after {
@@ -10,4 +12,16 @@ html {
 
 body {
   @include font-Inter-400;
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+main {
+  background-color: #F5F5F5;
+  flex: 1 0 auto;
 }
