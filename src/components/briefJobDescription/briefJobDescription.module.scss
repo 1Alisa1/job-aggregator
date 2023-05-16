@@ -1,0 +1,78 @@
+@use "/src/scss/abstracts/variables" as *;
+@use "/src/scss/abstracts/mixins" as *;
+
+.shortDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  @include small {
+    width: 80%;
+    gap: 10px;
+  }
+  .title {
+    color: map-get($color, "blue-500-main");
+    @include font-Inter-600;
+    font-size: 20px;
+    line-height: 24px;
+    @include small {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+  .salaryAndSchedule {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: map-get($color, "black");
+    @include small {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .salary {
+      @include font-Inter-700;
+      font-size: 1rem;
+      line-height: 20px;
+      @include small {
+        font-size: 0.75rem;
+        line-height: 16px;
+      }
+    }
+    .dot {
+      color: map-get($color, "grey-600");
+      @include small {
+        display: none;
+      }
+    }
+    .schedule {
+      font-size: 1rem;
+      line-height: 20px;
+      @include small {
+        font-size: 0.75rem;
+        line-height: 16px;
+      }
+    }
+  }
+  .town {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    img {
+      width: 20px;
+      height: 20px;
+      @include small {
+        width: 16px;
+        height: 16px;
+      }
+    }
+    span {
+      color: map-get($color, "black");
+      font-size: 1rem;
+      line-height: 19px;
+      @include small {
+        font-size: 0.875rem;
+        line-height: 17px;
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@use "/src/scss/abstracts/variables" as *;
+@use "/src/scss/abstracts/mixins" as *;
+
+.starIcon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: map-get($color, "grey-500");
+  @include large {
+    &:hover {
+      fill: none;
+      stroke: map-get($color, "blue-500-main");
+    }
+  }
+  @include medium {
+    &:hover {
+      fill: none;
+      stroke: map-get($color, "blue-500-main");
+    }
+  }
+  &:active {
+    fill: map-get($color, "blue-500-main");
+    stroke: map-get($color, "blue-500-main");
+  }
+  &.active {
+    fill: map-get($color, "blue-500-main");
+    stroke: map-get($color, "blue-500-main");
+  }
+  @include small {
+    width: 20px;
+    height: 20px;
+  }
+}
