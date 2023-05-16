@@ -1,12 +1,12 @@
 @use "/src/scss/abstracts/variables" as *;
 @use "/src/scss/abstracts/mixins" as *;
 
-.vacanciesSection {
+.favoriteVacanciesSection {
   @include large {
     @include wrapper(map-get($width, "large"));
-    padding-top: 40px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    padding-top: 40px;
   }
   @include medium {
     @include wrapper(map-get($width, "medium"));
@@ -15,12 +15,5 @@
   @include small {
     @include wrapper-small;
     padding-top: 30px;
-  }
-  .filterContainer {
-    margin-bottom: 16px;
-    @include medium {
-      display: flex;
-      justify-content: center;
-    }
   }
 }
