@@ -1,22 +1,19 @@
-@use '/src/scss/abstracts/variables' as *;
-@use '/src/scss/abstracts/mixins' as *;
+@use "/src/scss/abstracts/variables" as *;
+@use "/src/scss/abstracts/mixins" as *;
 
 header {
   @include large {
-    @include wrapper(map-get($width, 'large'));
+    @include wrapper(map-get($width, "large"));
     height: 84px;
-    margin-bottom: 40px;
   }
   @include medium {
-    @include wrapper(map-get($width, 'medium'));
+    @include wrapper(map-get($width, "medium"));
     height: 84px;
-    margin-bottom: 40px;
   }
   @include small {
     @include wrapper-small;
     justify-content: space-between;
     height: 60px;
-    margin-bottom: 30px;
   }
   display: flex;
   align-items: center;

@@ -1,0 +1,11 @@
+@use "/src/scss/abstracts/variables" as *;
+
+.dropDownIcon {
+  width: 24px;
+  height: 24px;
+  stroke: map-get($color, "grey-500");
+  &.active {
+    stroke: map-get($color, "blue-500-main");
+    transform: rotate(180deg);
+  }
+}
