@@ -1,3 +1,4 @@
+import SearchInput from "../../components/searchInput/searchInput";
 import VacanciesContainer from "../../components/vacanciesContainer/vacanciesContainer";
 import VacancySearchFilter from "../../components/vacancySearchFilter/vacancySearchFilter";
 import { useVacancies } from "../../hooks/useVacancies";
@@ -12,6 +13,7 @@ const HomePage: React.FC = () => {
         <VacancySearchFilter />
       </div>
       <div className={styles.vacanciesContainer}>
+        <SearchInput />
         <VacanciesContainer vacancies={data}/>
       </div>
     </section>

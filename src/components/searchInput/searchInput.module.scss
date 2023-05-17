@@ -1,0 +1,117 @@
+@use "/src/scss/abstracts/variables" as *;
+@use "/src/scss/abstracts/mixins" as *;
+
+@mixin active() {
+  border: 1px solid map-get($color, "blue-500-main");
+}
+
+.searchInputWrapper {
+  position: relative;
+  margin-bottom: 16px;
+  .input {
+    width: 100%;
+    height: 48px;
+    box-sizing: border-box;
+    padding: 13.5px 107px 13.5px 36px;
+    border: 1px solid map-get($color, "grey-200");
+    border-radius: 8px;
+    color: map-get($color, 'black');
+    font-size: 14px;
+    line-height: 21;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    &::-webkit-input-placeholder {
+      color: map-get($color, "grey-500");
+    }
+    @include large {
+      &:hover {
+        @include active;
+      }
+    }
+    @include medium {
+      &:hover {
+        @include active;
+      }
+    }
+    @include small {
+      padding: 13.5px 77px 13.5px 32px;
+    }
+    &:active {
+      @include active;
+    }
+    &:focus-visible {
+      @include active;
+    }
+    &.active {
+      @include active;
+    }
+  }
+  .leftSection {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 48px;
+    pointer-events: none;
+    @include small {
+      width: 32px;
+    }
+    img {
+      width: 16px;
+      height: 16px;
+      @include small {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+  .rightSection {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 107px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    @include large {
+      &:hover + .input {
+        @include active;
+      }
+    }
+    @include medium {
+      &:hover + .input {
+        @include active;
+      }
+    }
+    @include small {
+      width: 77px;
+    }
+    button {
+      width: 83px;
+      height: 32px;
+      @include btn-normal;
+      @include font-Inter-500;
+      font-size: 14px;
+      line-height: 21px;
+      @include large {
+        @include btn-hover;
+      }
+      @include medium {
+        @include btn-hover;
+      }
+      @include small {
+        width: 57px;
+        height: 25px;
+        font-size: 12px;
+      }
+      @include btn-active;
+    }
+  }
+}
