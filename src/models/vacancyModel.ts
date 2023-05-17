@@ -1,4 +1,4 @@
-interface IVacancy {
+export interface IVacancy {
   id: number;
   payment_from: number;
   payment_to: number;

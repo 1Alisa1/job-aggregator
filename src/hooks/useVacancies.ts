@@ -307,8 +307,8 @@ const data: IVacanciesResponse = {
   total: 321925,
 };
 
-export function useVacancy() {
-  return data;
+export function useVacancies() {
+  return data.objects;
 }
 
-export default useVacancy;
+export default useVacancies;

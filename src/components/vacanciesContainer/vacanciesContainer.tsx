@@ -1,14 +1,18 @@
-import useVacancy from "../../hooks/useVacancy";
+import { IVacancy } from "../../models/vacancyModel";
 import BriefJobDescription from "../briefJobDescription/briefJobDescription";
 import VacancyContainer from "../vacancyContainer/vacancyContainer";
 import styles from "./vacanciesContainer.module.scss";
 
-const VacanciesContainer: React.FC = () => {
-  const data = useVacancy();
+interface VacanciesContainerProps {
+  vacancies: IVacancy[];
+}
+
+const VacanciesContainer: React.FC<VacanciesContainerProps> = ({vacancies}) => {
+  
   return (
     <div className={styles.vacanciesContainer}>
-      {data.objects.map((el) => (
-        <VacancyContainer key={el.id}>
+      {vacancies.map((el) => (
+        <VacancyContainer key={el.id} data={el}>
           <BriefJobDescription
             title={el.profession}
             payment_from={el.payment_from}
