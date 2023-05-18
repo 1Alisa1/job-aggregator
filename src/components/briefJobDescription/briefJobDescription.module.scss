@@ -18,6 +18,16 @@
       font-size: 16px;
       line-height: 20px;
     }
+    &.titleDetail {
+      color: map-get($color, "black");
+      @include font-Inter-700;
+      font-size: 28px;
+      line-height: 33px;
+      @include small {
+        font-size: 18px;
+        line-height: 20px;
+      }
+    }
   }
   .salaryAndSchedule {
     display: flex;
@@ -37,6 +47,13 @@
         font-size: 0.75rem;
         line-height: 16px;
       }
+      &.salaryDetail {
+        font-size: 20px;
+        @include small {
+          font-size: 1rem;
+          line-height: 20px;
+        }
+      }
     }
     .dot {
       color: map-get($color, "grey-600");
@@ -50,6 +67,13 @@
       @include small {
         font-size: 0.75rem;
         line-height: 16px;
+      }
+      &.sheduleDetail {
+        font-size: 20px;
+        @include small {
+          font-size: 1rem;
+          line-height: 20px;
+        }
       }
     }
   }
@@ -74,5 +98,9 @@
         line-height: 17px;
       }
     }
+  }
+  &.shortDescriptionDetail {
+    gap: 16px;
+    width: 85%;
   }
 }
