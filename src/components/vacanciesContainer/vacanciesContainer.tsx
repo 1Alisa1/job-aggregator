@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { IVacancy } from "../../models/vacancyModel";
+import IVacanciesResponse from "../../models/vacancyModel";
 import BriefJobDescription from "../briefJobDescription/briefJobDescription";
 import VacancyContainer from "../vacancyContainer/vacancyContainer";
 import styles from "./vacanciesContainer.module.scss";
 
 interface VacanciesContainerProps {
-  vacancies: IVacancy[];
+  vacancies: IVacanciesResponse;
 }
 
 const VacanciesContainer: React.FC<VacanciesContainerProps> = ({
@@ -13,9 +13,9 @@ const VacanciesContainer: React.FC<VacanciesContainerProps> = ({
 }) => {
   return (
     <div className={styles.vacanciesContainer}>
-      {vacancies.map((el) => (
-        <Link to={`/vacancies/${el.id}`} state={el}>
-          <VacancyContainer key={el.id} data={el}>
+      {vacancies.objects.map((el) => (
+        <Link to={`/vacancies/${el.id}`} state={el} key={el.id}>
+          <VacancyContainer data={el}>
             <BriefJobDescription
               title={el.profession}
               payment_from={el.payment_from}
