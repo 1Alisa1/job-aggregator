@@ -1,0 +1,21 @@
+@use "/src/scss/abstracts/variables" as *;
+@use "/src/scss/abstracts/mixins" as *;
+
+.vacancyDelailsSection {
+  @include large {
+    @include wrapper(map-get($width, "large"));
+    padding-top: 40px;
+  }
+  @include medium {
+    @include wrapper(map-get($width, "medium"));
+    padding-top: 40px;
+  }
+  @include small {
+    @include wrapper-small;
+    padding-top: 30px;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}

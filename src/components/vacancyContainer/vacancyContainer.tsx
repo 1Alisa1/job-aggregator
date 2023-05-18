@@ -16,15 +16,17 @@ const VacancyContainer: React.FC<VacancyContainerProps> = ({
   const { favoriteVacancies, setFavoriteVacancies } =
     useFavoriteVacanciesContext();
 
-  const isFavoriteInitialValue = favoriteVacancies.some(el => el === data.id);
+  const isFavoriteInitialValue = favoriteVacancies.some((el) => el === data.id);
 
   const [isFavorite, setIsFavorite] = useState(isFavoriteInitialValue);
 
   useEffect(() => {
     if (isFavorite) {
-      setFavoriteVacancies((prev) => prev.some(el => el === data.id) ? prev : [...prev, data.id]);
+      setFavoriteVacancies((prev) =>
+        prev.some((el) => el === data.id) ? prev : [...prev, data.id]
+      );
     } else {
-      setFavoriteVacancies((prev) => prev.filter(el => el !== data.id));
+      setFavoriteVacancies((prev) => prev.filter((el) => el !== data.id));
     }
   }, [isFavorite]);
 
@@ -32,7 +34,10 @@ const VacancyContainer: React.FC<VacancyContainerProps> = ({
     <div className={styles.vacancyContainer}>
       <div
         className={styles.starImg}
-        onClick={() => setIsFavorite((prev) => !prev)}
+        onClick={(e) => {
+          e.preventDefault();
+          setIsFavorite((prev) => !prev);
+        }}
       >
         <StarIcon saveVacancy={isFavorite} />
       </div>
