@@ -1,10 +1,20 @@
 import { NavLink } from "react-router-dom";
 import styles from "./navigation.module.scss";
 
-const Navigation: React.FC = () => {
+interface NavigationProps {
+  setActiveModal?: (value: React.SetStateAction<boolean>) => void;
+}
+
+const Navigation: React.FC<NavigationProps> = ({setActiveModal}) => {
   const activeLink = {
     color: "#5E96FC",
   };
+
+  const handleClick = () => {
+    if (setActiveModal) {
+      setActiveModal(false);
+    }
+  }
 
   return (
     <nav>
@@ -12,6 +22,7 @@ const Navigation: React.FC = () => {
         <NavLink
           to="/vacancies"
           style={({ isActive }) => (isActive ? activeLink : undefined)}
+          onClick={handleClick}
         >
           Поиск вакансий
         </NavLink>
@@ -20,6 +31,7 @@ const Navigation: React.FC = () => {
         <NavLink
           to="/favorites"
           style={({ isActive }) => (isActive ? activeLink : undefined)}
+          onClick={handleClick}
         >
           Избранное
         </NavLink>
