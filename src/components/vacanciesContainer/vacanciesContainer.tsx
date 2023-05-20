@@ -13,7 +13,7 @@ const VacanciesContainer: React.FC<VacanciesContainerProps> = ({
 }) => {
   return (
     <div className={styles.vacanciesContainer}>
-      {vacancies.objects.map((el) => (
+      {vacancies.objects?.map((el) => (
         <Link to={`/vacancies/${el.id}`} state={el} key={el.id}>
           <VacancyContainer data={el}>
             <BriefJobDescription

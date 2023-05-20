@@ -1,9 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./searchInput.module.scss";
-import search from '../../img/search.svg';
+import search from "../../img/search.svg";
 
-const SearchInput = () => {
-  const [value, setValue] = useState('');
+interface SearchInputProps {
+  keyword: string;
+  setKeyword: (search: string) => void;
+}
+
+const SearchInput: React.FC<SearchInputProps> = ({ keyword, setKeyword }) => {
+  const [value, setValue] = useState(keyword);
+
+  useEffect(() => {
+    if (!keyword) {
+      setValue("");
+    }
+  }, [keyword]);
 
   return (
     <div className={styles.searchInputWrapper}>
@@ -11,16 +22,16 @@ const SearchInput = () => {
         <img src={search} alt="search"></img>
       </div>
       <div className={styles.rightSection}>
-        <button>Поиск</button>
+        <button onClick={() => setKeyword(value)}>Поиск</button>
       </div>
       <input
-        type='search'
+        type="search"
         className={styles.input}
         value={value}
-        placeholder='Введите название вакансии'
+        placeholder="Введите название вакансии"
         autoComplete="off"
         onChange={(e) => setValue(e.target.value)}
-      ></input>  
+      ></input>
     </div>
   );
 };

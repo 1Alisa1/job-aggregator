@@ -4,18 +4,48 @@ import SalaryFilterInput from "../salaryFilterInput/salaryFilterInput";
 import SearchCategory from "../searchCategory/searchCategory";
 import IndustryFilterInput from "../industryFilterInput/industryFilterInput";
 import { useCategories } from "../../hooks/useCategories";
-const VacancySearchFilter: React.FC = () => {
+import IVacanciesFilter from "../../models/vacanciesFilterModel";
+
+interface VacancySearchFilterProps {
+  filter: IVacanciesFilter;
+  setFilter: (value: IVacanciesFilter) => void;
+  handleResetAll: () => void;
+}
+
+const VacancySearchFilter: React.FC<VacancySearchFilterProps> = ({
+  filter,
+  setFilter,
+  handleResetAll,
+}) => {
   const { loading, response, error } = useCategories();
 
+  const category = response
+    ? response?.find((el) => el.key === filter.industryKey)
+    : undefined;
+
   const [active, setActive] = useState(false);
-  const [industryValue, setIndustryValue] = useState("");
-  const [initialValue, setInitialValue] = useState("");
-  const [finalValue, setFinalValue] = useState("");
+
+  const [industryValue, setIndustryValue] = useState(category);
+  const [paymentFrom, setPaymentFrom] = useState(
+    filter.paymentFrom?.toString() ?? ""
+  );
+  const [paymentTo, setPaymentTo] = useState(
+    filter.paymentTo?.toString() ?? ""
+  );
 
   const resetAllHandler = () => {
-    setIndustryValue("");
-    setInitialValue("");
-    setFinalValue("");
+    setIndustryValue(undefined);
+    setPaymentFrom("");
+    setPaymentTo("");
+    handleResetAll();
+  };
+
+  const handleApplyButtonClick = () => {
+    setFilter({
+      industryKey: industryValue ? Number(industryValue.key) : undefined,
+      paymentFrom: paymentFrom ? Number(paymentFrom) : undefined,
+      paymentTo: paymentTo ? Number(paymentTo) : undefined,
+    });
   };
 
   return (
@@ -33,7 +63,7 @@ const VacancySearchFilter: React.FC = () => {
         <SearchCategory name="Отрасль">
           <div className={styles.selector}>
             <IndustryFilterInput
-              value={industryValue}
+              value={industryValue?.title ?? ""}
               setActive={setActive}
               active={active}
             />
@@ -53,7 +83,7 @@ const VacancySearchFilter: React.FC = () => {
                   key={el.key}
                   className={styles.option}
                   onClick={() => {
-                    setIndustryValue(el.title);
+                    setIndustryValue(el);
                     setActive(false);
                   }}
                 >
@@ -66,19 +96,21 @@ const VacancySearchFilter: React.FC = () => {
           <div className={styles.selector}>
             <SalaryFilterInput
               placeholder="От"
-              value={initialValue}
-              setValue={setInitialValue}
+              value={paymentFrom}
+              setValue={setPaymentFrom}
             />
           </div>
           <div className={styles.selector}>
             <SalaryFilterInput
               placeholder="До"
-              value={finalValue}
-              setValue={setFinalValue}
+              value={paymentTo}
+              setValue={setPaymentTo}
             />
           </div>
         </SearchCategory>
-        <button className={styles.btnApply}>Применить</button>
+        <button className={styles.btnApply} onClick={handleApplyButtonClick}>
+          Применить
+        </button>
       </div>
     </div>
   );

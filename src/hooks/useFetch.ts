@@ -13,13 +13,17 @@ export function useFetch<T>(url: string, options?: RequestInit) {
   };
 
   const handleResponse = (response: Response) => {
-    response
+    if (response.ok) {
+      response
       .clone()
       .json()
       .then((parsed) => {
         setResponse(parsed);
         setLoading(false);
       });
+    } else {
+      throw new Error(`Request failed. Response status code - ${response.status}`);
+    }
   };
 
   useEffect(() => {
