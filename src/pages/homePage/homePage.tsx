@@ -5,7 +5,7 @@ import { useVacancies } from "../../hooks/useVacancies";
 import styles from "./homePage.module.scss";
 
 const HomePage: React.FC = () => {
-  const data = useVacancies();
+  const { loading, response, error } = useVacancies();
 
   return (
     <section className={styles.vacanciesSection}>
@@ -14,7 +14,11 @@ const HomePage: React.FC = () => {
       </div>
       <div className={styles.vacanciesContainer}>
         <SearchInput />
-        <VacanciesContainer vacancies={data}/>
+        {loading && <div>Please, stand by</div>}
+        {error && <div>Error!</div>}
+        {!loading && !error && response && (
+          <VacanciesContainer vacancies={response} />
+        )}
       </div>
     </section>
   );

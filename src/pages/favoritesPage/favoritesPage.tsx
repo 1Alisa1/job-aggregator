@@ -6,13 +6,21 @@ import styles from "./favoritesPage.module.scss";
 const FavoritesPage: React.FC = () => {
   const { favoriteVacancies, setFavoriteVacancies } =
     useFavoriteVacanciesContext();
-
-  const vacancies = useFavoriteVacancies(favoriteVacancies);
-
+  const { loading, response, error } = useFavoriteVacancies(favoriteVacancies);
   return (
-    <section className={styles.favoriteVacanciesSection}>
-      <VacanciesContainer vacancies={vacancies} />
-    </section>
+    <>
+      {loading && (
+        <div>Please, stand by</div>
+      )}
+      {error && (
+        <div>Error!</div>
+      )}
+      {!loading && !error && response && (
+        <section className={styles.favoriteVacanciesSection}>
+          <VacanciesContainer vacancies={response} />
+        </section>
+      )}
+    </>
   );
 };
 

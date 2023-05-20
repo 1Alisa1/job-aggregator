@@ -3,9 +3,10 @@ import { useState } from "react";
 import SalaryFilterInput from "../salaryFilterInput/salaryFilterInput";
 import SearchCategory from "../searchCategory/searchCategory";
 import IndustryFilterInput from "../industryFilterInput/industryFilterInput";
-
+import { useCategories } from "../../hooks/useCategories";
 const VacancySearchFilter: React.FC = () => {
-  const arr = ["1", "2", "3", "4", "5", "6", "7", "8"];
+  const { loading, response, error } = useCategories();
+
   const [active, setActive] = useState(false);
   const [industryValue, setIndustryValue] = useState("");
   const [initialValue, setInitialValue] = useState("");
@@ -42,18 +43,23 @@ const VacancySearchFilter: React.FC = () => {
               active ? `${styles.options} ${styles.show}` : styles.options
             }
           >
-            {arr.map((el) => (
-              <div
-                key={el}
-                className={styles.option}
-                onClick={() => {
-                  setIndustryValue(el);
-                  setActive(false);
-                }}
-              >
-                <span>вариант {el}</span>
-              </div>
-            ))}
+            {loading && <div>Please, stand by</div>}
+            {error && <div>Error!</div>}
+            {!loading &&
+              !error &&
+              response &&
+              response.map((el) => (
+                <div
+                  key={el.key}
+                  className={styles.option}
+                  onClick={() => {
+                    setIndustryValue(el.title);
+                    setActive(false);
+                  }}
+                >
+                  <span>{el.title}</span>
+                </div>
+              ))}
           </div>
         </SearchCategory>
         <SearchCategory name="Оклад">
