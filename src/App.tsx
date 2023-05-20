@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { HomePage } from "./pages/homePage/homePage";
 import { FavoritesPage } from "./pages/favoritesPage/favoritesPage";
 import { EmptyState } from "./pages/emptyState/emptyState";
@@ -18,7 +18,8 @@ function App() {
               <Route path="vacancies" element={<HomePage />} />
               <Route path="vacancies/:id" element={<VacancyPage />} />
               <Route path="favorites" element={<FavoritesPage />} />
-              <Route path="*" element={<EmptyState />} />
+              <Route path="404" element={<EmptyState />} />
+              <Route path="*" element={<Navigate to="404" />} />
             </Route>
           </Routes>
         </FavoriteVacanciesProvider>

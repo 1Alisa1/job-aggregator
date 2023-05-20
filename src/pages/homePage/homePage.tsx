@@ -62,6 +62,12 @@ const HomePage: React.FC = () => {
 
   const { loading, response, error } = useVacancies(filter, keyword);
 
+  useEffect(() => {
+    if (response?.objects.length === 0) {
+      navigate("/404");
+    }
+  }, [response?.objects]);
+
   const resetAllSearchParams = () => {
     setFilter({});
     setKeyword("");
