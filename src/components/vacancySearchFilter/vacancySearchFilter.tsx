@@ -5,6 +5,7 @@ import SearchCategory from "../searchCategory/searchCategory";
 import IndustryFilterInput from "../industryFilterInput/industryFilterInput";
 import { useCategories } from "../../hooks/useCategories";
 import IVacanciesFilter from "../../models/vacanciesFilterModel";
+import Loader from "../loader/loader";
 
 interface VacancySearchFilterProps {
   filter: IVacanciesFilter;
@@ -73,7 +74,7 @@ const VacancySearchFilter: React.FC<VacancySearchFilterProps> = ({
               active ? `${styles.options} ${styles.show}` : styles.options
             }
           >
-            {loading && <div>Please, stand by</div>}
+            {loading && <Loader />}
             {error && <div>Error!</div>}
             {!loading &&
               !error &&

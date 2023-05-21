@@ -6,6 +6,7 @@ import { useVacancies } from "../../hooks/useVacancies";
 import IVacanciesFilter from "../../models/vacanciesFilterModel";
 import styles from "./homePage.module.scss";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import Loader from "../../components/loader/loader";
 
 const ITEMS_PER_PAGE = 4;
 
@@ -136,7 +137,7 @@ const HomePage: React.FC = () => {
       </div>
       <div className={styles.vacanciesContainer}>
         <SearchInput keyword={keyword} setKeyword={handleKeywordChange} />
-        {loading && <div>Please, stand by</div>}
+        {loading && <Loader />}
         {error && <div>Error!</div>}
         {!loading && !error && response && (
           <VacanciesContainer

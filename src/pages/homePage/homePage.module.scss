@@ -23,4 +23,16 @@
       justify-content: center;
     }
   }
+  .vacanciesContainer {
+    width: 773px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include medium {
+      width: 100%;
+    }
+    @include small {
+      width: 100%;
+    }
+  }
 }

@@ -4,6 +4,7 @@ import { useFavoriteVacanciesContext } from "../../context/context";
 import useFavoriteVacancies from "../../hooks/useFavoriteVacancies";
 import styles from "./favoritesPage.module.scss";
 import { useEffect, useState } from "react";
+import Loader from "../../components/loader/loader";
 
 const ITEMS_PER_PAGE = 4;
 
@@ -58,21 +59,19 @@ const FavoritesPage: React.FC = () => {
   }
 
   return (
-    <>
-      {loading && <div>Please, stand by</div>}
+    <section className={styles.favoriteVacanciesSection}>
+      {loading && <Loader />}
       {error && <div>Error!</div>}
       {!loading && !error && response && (
-        <section className={styles.favoriteVacanciesSection}>
-          <VacanciesContainer
-            vacancies={response.objects}
-            itemsPerPage={ITEMS_PER_PAGE}
-            pageCount={pageCount}
-            page={page}
-            setPage={setPage}
-          />
-        </section>
+        <VacanciesContainer
+          vacancies={response.objects}
+          itemsPerPage={ITEMS_PER_PAGE}
+          pageCount={pageCount}
+          page={page}
+          setPage={setPage}
+        />
       )}
-    </>
+    </section>
   );
 };
 
