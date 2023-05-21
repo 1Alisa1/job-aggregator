@@ -1,3 +1,6 @@
+@use "/src/scss/abstracts/variables" as *;
+@use "/src/scss/abstracts/mixins" as *;
+
 .vacanciesContainer {
   display: flex;
   flex-direction: column;
@@ -8,5 +11,66 @@
     &:focus {
       outline: none;
     }
+  }
+}
+
+.pagination {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 44px;
+  color: map-get($color, "black");
+  font-size: 16px;
+  @include small {
+    font-size: 14px;
+  }
+  .pageNum {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    border: 1px solid map-get($color, "grey-300");
+    background-color: white;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    @include small {
+      width: 28px;
+      height: 28px;
+    }
+    a {
+      width: inherit;
+      height: inherit;
+      text-align: center;
+      line-height: 32px;
+      &:focus {
+        outline: none;
+      }
+      @include small {
+        line-height: 28px;
+      }
+    }
+  }
+  .arrow {
+    a {
+      line-height: 38px;
+      @include small {
+        line-height: 34px;
+      }
+    }
+  }
+  .disabled {
+    border: map-get($color, "grey-200");
+    svg {
+      stroke: map-get($color, "grey-200");
+    }
+  }
+  .active {
+    background-color: map-get($color, "blue-500-main");
+    border: map-get($color, "blue-500-main");
+    color: white;
   }
 }

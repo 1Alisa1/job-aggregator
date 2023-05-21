@@ -7,6 +7,8 @@ import IVacanciesFilter from "../../models/vacanciesFilterModel";
 import styles from "./homePage.module.scss";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
+const ITEMS_PER_PAGE = 4;
+
 const getFilterFromSearchParams = (
   searchParams: URLSearchParams
 ): IVacanciesFilter => {
@@ -25,6 +27,12 @@ const getKeywordFromSearchParams = (searchParams: URLSearchParams) => {
   return searchParams.get("keyword") ?? "";
 };
 
+const getPageFromSearchParams = (searchParams: URLSearchParams) => {
+  const page = searchParams.get("page");
+
+  return page ? Number(page) - 1 : 0;
+};
+
 const HomePage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -37,6 +45,8 @@ const HomePage: React.FC = () => {
   const [filter, setFilter] = useState<IVacanciesFilter>(
     getFilterFromSearchParams(searchParams)
   );
+
+  const [page, setPage] = useState(getPageFromSearchParams(searchParams));
 
   useEffect(() => {
     const queryParams = new URLSearchParams();
@@ -57,10 +67,31 @@ const HomePage: React.FC = () => {
       queryParams.set("keyword", keyword);
     }
 
-    navigate(`/vacancies?${queryParams}`);
-  }, [filter, keyword]);
+    if (page) {
+      queryParams.set("page", (page + 1).toString());
+    }
 
-  const { loading, response, error } = useVacancies(filter, keyword);
+    navigate(`/vacancies?${queryParams}`);
+  }, [filter, keyword, page]);
+
+  const { loading, response, error } = useVacancies(
+    filter,
+    keyword,
+    ITEMS_PER_PAGE,
+    page
+  );
+
+  let total = response?.total ?? 0;
+
+  if (total > 500) {
+    total = 500;
+  }
+
+  const pageCount = Math.ceil(total / ITEMS_PER_PAGE);
+
+  if (response && page + 1 > pageCount) {
+    navigate("/404");
+  }
 
   useEffect(() => {
     if (response?.objects.length === 0) {
@@ -71,6 +102,27 @@ const HomePage: React.FC = () => {
   const resetAllSearchParams = () => {
     setFilter({});
     setKeyword("");
+    setPage(0);
+  };
+
+  const handleKeywordChange = (newKeyword: string) => {
+    setKeyword(newKeyword);
+
+    if (keyword !== newKeyword) {
+      setPage(0);
+    }
+  };
+
+  const handleFilterChange = (newFilter: IVacanciesFilter) => {
+    setFilter(newFilter);
+
+    if (
+      filter.industryKey !== newFilter.industryKey ||
+      filter.paymentFrom !== newFilter.paymentFrom ||
+      filter.paymentTo !== newFilter.paymentTo
+    ) {
+      setPage(0);
+    }
   };
 
   return (
@@ -78,16 +130,22 @@ const HomePage: React.FC = () => {
       <div className={styles.filterContainer}>
         <VacancySearchFilter
           filter={filter}
-          setFilter={setFilter}
+          setFilter={handleFilterChange}
           handleResetAll={resetAllSearchParams}
         />
       </div>
       <div className={styles.vacanciesContainer}>
-        <SearchInput keyword={keyword} setKeyword={setKeyword} />
+        <SearchInput keyword={keyword} setKeyword={handleKeywordChange} />
         {loading && <div>Please, stand by</div>}
         {error && <div>Error!</div>}
         {!loading && !error && response && (
-          <VacanciesContainer vacancies={response} />
+          <VacanciesContainer
+            vacancies={response.objects}
+            itemsPerPage={ITEMS_PER_PAGE}
+            pageCount={pageCount}
+            page={page}
+            setPage={setPage}
+          />
         )}
       </div>
     </section>

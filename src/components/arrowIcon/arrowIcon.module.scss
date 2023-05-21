@@ -1,0 +1,9 @@
+@use "/src/scss/abstracts/variables" as *;
+@use "/src/scss/abstracts/mixins" as *;
+
+.arrowIcon {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: map-get($color, "grey-600");
+} 

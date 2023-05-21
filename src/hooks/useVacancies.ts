@@ -2,7 +2,12 @@ import IVacanciesFilter from "../models/vacanciesFilterModel";
 import IVacanciesResponse from "../models/vacancyModel";
 import { useApi } from "./useApi";
 
-export function useVacancies(filter: IVacanciesFilter, keyword: string) {
+export function useVacancies(
+  filter: IVacanciesFilter,
+  keyword: string,
+  itemsPerPage: number,
+  page: number
+) {
   const queryParams = new URLSearchParams();
 
   queryParams.set("published", "1");
@@ -22,6 +27,10 @@ export function useVacancies(filter: IVacanciesFilter, keyword: string) {
   if (keyword) {
     queryParams.set("keyword", keyword);
   }
+
+  queryParams.set("page", page.toString());
+
+  queryParams.set("count", itemsPerPage.toString());
 
   const { loading, response, error } = useApi<IVacanciesResponse>(
     `vacancies?${queryParams}`
