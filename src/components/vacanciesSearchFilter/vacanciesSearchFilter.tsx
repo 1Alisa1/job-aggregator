@@ -1,11 +1,11 @@
-import styles from "./vacancySearchFilter.module.scss";
+import styles from "./vacanciesSearchFilter.module.scss";
 import { useState } from "react";
 import SalaryFilterInput from "../salaryFilterInput/salaryFilterInput";
 import SearchCategory from "../searchCategory/searchCategory";
 import IndustryFilterInput from "../industryFilterInput/industryFilterInput";
 import { useCategories } from "../../hooks/useCategories";
 import IVacanciesFilter from "../../models/vacanciesFilterModel";
-import Loader from "../loader/loader";
+import Categories from "../categories/categories";
 
 interface VacancySearchFilterProps {
   filter: IVacanciesFilter;
@@ -68,7 +68,7 @@ const VacancySearchFilter: React.FC<VacancySearchFilterProps> = ({
       </div>
       <div className={styles.filter}>
         <SearchCategory name="Отрасль">
-          <div className={styles.selector}>
+          <div className={styles.input}>
             <IndustryFilterInput
               value={industryValue?.title ?? ""}
               setActive={setActive}
@@ -76,32 +76,17 @@ const VacancySearchFilter: React.FC<VacancySearchFilterProps> = ({
               dataElem="industry-select"
             />
           </div>
-          <div
-            className={
-              active ? `${styles.options} ${styles.show}` : styles.options
-            }
-          >
-            {loading && <Loader />}
-            {error && <div>Error!</div>}
-            {!loading &&
-              !error &&
-              response &&
-              response.map((el) => (
-                <div
-                  key={el.key}
-                  className={styles.option}
-                  onClick={() => {
-                    setIndustryValue(el);
-                    setActive(false);
-                  }}
-                >
-                  <span>{el.title}</span>
-                </div>
-              ))}
-          </div>
+          <Categories
+            active={active}
+            setActive={setActive}
+            loading={loading}
+            error={error}
+            categories={response}
+            setIndustryValue={setIndustryValue}
+          />
         </SearchCategory>
         <SearchCategory name="Оклад">
-          <div className={styles.selector}>
+          <div className={styles.input}>
             <SalaryFilterInput
               placeholder="От"
               value={paymentFrom}
@@ -109,7 +94,7 @@ const VacancySearchFilter: React.FC<VacancySearchFilterProps> = ({
               dataElem="salary-from-input"
             />
           </div>
-          <div className={styles.selector}>
+          <div className={styles.input}>
             <SalaryFilterInput
               placeholder="До"
               value={paymentTo}

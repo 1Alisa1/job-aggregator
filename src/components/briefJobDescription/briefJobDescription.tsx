@@ -18,7 +18,7 @@ const BriefJobDescription: React.FC<BriefJobDescriptionProps> = ({
   schedule,
   town,
   currency,
-  isDetail
+  isDetail,
 }) => {
   let salary = "";
 
@@ -33,12 +33,33 @@ const BriefJobDescription: React.FC<BriefJobDescriptionProps> = ({
   }
 
   return (
-    <div className={styles.shortDescription + (isDetail ? " " + styles.shortDescriptionDetail: '')}>
-      <div className={styles.title + (isDetail ? " " + styles.titleDetail : '')}>{title}</div>
+    <div
+      className={
+        styles.shortDescription +
+        (isDetail ? " " + styles.shortDescriptionDetail : "")
+      }
+    >
+      <div
+        className={styles.title + (isDetail ? " " + styles.titleDetail : "")}
+      >
+        {title}
+      </div>
       <div className={styles.salaryAndSchedule}>
-        <div className={styles.salary + (isDetail ? " " + styles.salaryDetail : '')}>з/п {salary}</div>
+        <div
+          className={
+            styles.salary + (isDetail ? " " + styles.salaryDetail : "")
+          }
+        >
+          з/п {salary}
+        </div>
         <div className={styles.dot}>•</div>
-        <div className={styles.schedule + (isDetail ? " " + styles.sheduleDetail : '')}>{schedule}</div>
+        <div
+          className={
+            styles.schedule + (isDetail ? " " + styles.sheduleDetail : "")
+          }
+        >
+          {schedule}
+        </div>
       </div>
       <div className={styles.town}>
         <img src={location} alt="location"></img>

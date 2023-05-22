@@ -6,12 +6,12 @@ interface FavoriteVacanciesContextValue {
   setFavoriteVacancies: React.Dispatch<React.SetStateAction<IVacancy["id"][]>>;
 }
 
-const FavoriteVacanciesContext =
-  createContext<FavoriteVacanciesContextValue | null>(null);
-
 interface FavoriteVacanciesProviderProps {
   children: React.ReactNode;
 }
+
+const FavoriteVacanciesContext =
+  createContext<FavoriteVacanciesContextValue | null>(null);
 
 export const FavoriteVacanciesProvider: React.FC<
   FavoriteVacanciesProviderProps

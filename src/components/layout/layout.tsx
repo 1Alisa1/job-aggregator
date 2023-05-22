@@ -8,6 +8,7 @@ import Modal from "../modal/modal";
 
 const Layout: React.FC = () => {
   const [isNavModalOpen, setIsNavModalOpen] = useState(false);
+  
   return (
     <>
       <header>

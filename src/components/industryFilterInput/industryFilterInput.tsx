@@ -3,7 +3,7 @@ import Input from "../input/input";
 import DropDownIcon from "../dropDownIcon/dropDownIcon";
 interface IndustryFilterInputProps {
   value: string;
-  setActive(active: boolean): void;
+  setActive: (active: boolean) => void;
   active: boolean;
   dataElem: string;
 }

@@ -4,8 +4,6 @@ import BriefJobDescription from "../briefJobDescription/briefJobDescription";
 import VacancyContainer from "../vacancyContainer/vacancyContainer";
 import styles from "./vacanciesContainer.module.scss";
 import ReactPaginate from "react-paginate";
-import up from "../../img/up.svg";
-import down from "../../img/down.svg";
 import ArrowIcon from "../arrowIcon/arrowIcon";
 
 interface VacanciesContainerProps {
@@ -18,7 +16,6 @@ interface VacanciesContainerProps {
 
 const VacanciesContainer: React.FC<VacanciesContainerProps> = ({
   vacancies,
-  itemsPerPage,
   pageCount,
   page,
   setPage,

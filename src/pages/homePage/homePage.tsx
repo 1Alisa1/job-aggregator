@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import SearchInput from "../../components/searchInput/searchInput";
 import VacanciesContainer from "../../components/vacanciesContainer/vacanciesContainer";
-import VacancySearchFilter from "../../components/vacancySearchFilter/vacancySearchFilter";
+import VacanciesSearchFilter from "../../components/vacanciesSearchFilter/vacanciesSearchFilter";
 import { useVacancies } from "../../hooks/useVacancies";
 import IVacanciesFilter from "../../models/vacanciesFilterModel";
 import styles from "./homePage.module.scss";
@@ -32,25 +32,20 @@ const getKeywordFromSearchParams = (searchParams: URLSearchParams) => {
 
 const getPageFromSearchParams = (searchParams: URLSearchParams) => {
   const page = searchParams.get("page");
-
   return page ? Number(page) - 1 : 0;
 };
 
 const HomePage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-
   const navigate = useNavigate();
 
   const [keyword, setKeyword] = useState(
     getKeywordFromSearchParams(searchParams)
   );
-
   const [filter, setFilter] = useState<IVacanciesFilter>(
     getFilterFromSearchParams(searchParams)
   );
-
   const [page, setPage] = useState(getPageFromSearchParams(searchParams));
-
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -87,7 +82,7 @@ const HomePage: React.FC = () => {
   );
 
   let total = response?.total ?? 0;
-
+  
   if (total > 500) {
     total = 500;
   }
@@ -133,7 +128,7 @@ const HomePage: React.FC = () => {
   return (
     <section className={styles.vacanciesSection}>
       <div className={styles.filterContainer}>
-        <VacancySearchFilter
+        <VacanciesSearchFilter
           filter={filter}
           setFilter={handleFilterChange}
           handleResetAll={resetAllSearchParams}
@@ -169,7 +164,7 @@ const HomePage: React.FC = () => {
         modalOverlayClass={styles.filterModalOverlay}
         modalActiveClass={styles.activeModal}
       >
-        <VacancySearchFilter
+        <VacanciesSearchFilter
           filter={filter}
           setFilter={handleFilterChange}
           handleResetAll={resetAllSearchParams}

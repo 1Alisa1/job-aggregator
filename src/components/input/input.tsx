@@ -2,7 +2,6 @@ import styles from "./input.module.scss";
 interface InputProps {
   active?: boolean;
   value?: string;
-  setValue?: (value: string) => void;
   placeholder: string;
   type?: string;
   readonly?: boolean;
@@ -15,7 +14,6 @@ interface InputProps {
 const Input: React.FC<InputProps> = ({
   active,
   value,
-  setValue,
   placeholder,
   type,
   readonly,

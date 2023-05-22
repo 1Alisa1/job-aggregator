@@ -11,7 +11,6 @@ export function useFavoriteVacancies(
   const queryParams = new URLSearchParams();
 
   queryParams.set("page", page.toString());
-
   queryParams.set("count", itemsPerPage.toString());
 
   const { loading, response, error } = useApi<IVacanciesResponse>(
