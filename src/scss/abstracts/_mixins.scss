@@ -72,3 +72,9 @@
     background-color: map-get($color, "blue-600");
   }
 }
+
+@mixin card-border {
+  border: 1px solid map-get($color, "grey-200");
+  border-radius: 12px;
+  background-color: white;
+}

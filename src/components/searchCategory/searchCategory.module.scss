@@ -6,9 +6,9 @@
   .optionName {
     display: block;
     margin-bottom: 8px;
+    color: map-get($color, "black");
     @include font-Inter-700;
     font-size: 16px;
     line-height: 19px;
-    color: map-get($color, "black");
   }
 }

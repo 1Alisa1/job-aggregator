@@ -2,6 +2,11 @@
 @use "/src/scss/abstracts/mixins" as *;
 
 .favoriteVacanciesSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
   @include large {
     @include wrapper(map-get($width, "large"));
     padding-top: 40px;
@@ -14,9 +19,4 @@
     @include wrapper-small;
     padding-top: 30px;
   }
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
 }

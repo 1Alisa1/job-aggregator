@@ -77,7 +77,7 @@
   }
   .active {
     background-color: map-get($color, "blue-500-main");
-    border: map-get($color, "blue-500-main");
     color: white;
+    border: map-get($color, "blue-500-main");
   }
 }

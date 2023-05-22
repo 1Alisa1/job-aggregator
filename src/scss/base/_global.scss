@@ -11,9 +11,9 @@ html {
 }
 
 body {
+  height: 100%;
   overflow: hidden;
   @include font-Inter-400;
-  height: 100%;
 }
 
 #root {
@@ -24,6 +24,6 @@ body {
 }
 
 main {
-  background-color: #F5F5F5;
   flex: 1 0 auto;
+  background-color: #F5F5F5;
 }
