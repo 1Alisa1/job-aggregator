@@ -7,8 +7,15 @@
   border: 1px solid map-get($color, "grey-200");
   border-radius: 12px;
   background-color: white;
+  @include medium {
+    width: 250px;
+    border: none;
+    padding: 0;
+  }
   @include small {
-    width: 100%;
+    width: 250px;
+    border: none;
+    padding: 0;
   }
   .filterHeader {
     display: flex;
@@ -96,7 +103,7 @@
       opacity: 1;
     }
     .option {
-      height: 36px;
+      height: auto;
       padding: 8px;
       border: none;
       border-radius: 8px;

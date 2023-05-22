@@ -7,7 +7,6 @@
 
 .searchInputWrapper {
   position: relative;
-  margin-bottom: 16px;
   width: 100%;
   .input {
     width: 100%;
@@ -35,7 +34,9 @@
       }
     }
     @include small {
-      padding: 13.5px 77px 13.5px 32px;
+      height: 40px;
+      padding: 13.5px 65px 13.5px 28px;
+      font-size: 12px;
     }
     &:active {
       @include active;
@@ -60,6 +61,7 @@
     pointer-events: none;
     @include small {
       width: 32px;
+      height: 40px;
     }
     img {
       width: 16px;
@@ -92,7 +94,8 @@
       }
     }
     @include small {
-      width: 77px;
+      width: 67px;
+      height: 40px;
     }
     button {
       width: 83px;
@@ -108,7 +111,7 @@
         @include btn-hover;
       }
       @include small {
-        width: 57px;
+        width: 50px;
         height: 25px;
         font-size: 12px;
       }

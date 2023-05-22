@@ -11,12 +11,14 @@ interface VacancySearchFilterProps {
   filter: IVacanciesFilter;
   setFilter: (value: IVacanciesFilter) => void;
   handleResetAll: () => void;
+  setActiveModal?: (value: React.SetStateAction<boolean>) => void;
 }
 
 const VacancySearchFilter: React.FC<VacancySearchFilterProps> = ({
   filter,
   setFilter,
   handleResetAll,
+  setActiveModal
 }) => {
   const { loading, response, error } = useCategories();
 
@@ -34,7 +36,8 @@ const VacancySearchFilter: React.FC<VacancySearchFilterProps> = ({
     filter.paymentTo?.toString() ?? ""
   );
 
-  const resetAllHandler = () => {
+  const resetAllHandler: React.MouseEventHandler<HTMLDivElement> = (e) => {
+    e.stopPropagation();
     setIndustryValue(undefined);
     setPaymentFrom("");
     setPaymentTo("");
@@ -47,6 +50,9 @@ const VacancySearchFilter: React.FC<VacancySearchFilterProps> = ({
       paymentFrom: paymentFrom ? Number(paymentFrom) : undefined,
       paymentTo: paymentTo ? Number(paymentTo) : undefined,
     });
+    if(setActiveModal) {
+      setActiveModal(false);
+    }
   };
 
   return (

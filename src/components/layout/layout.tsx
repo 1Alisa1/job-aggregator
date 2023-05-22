@@ -3,8 +3,8 @@ import logo from "../../img/logo.svg";
 import navBtn from "../../img/navBtn.svg";
 import styles from "./layout.module.scss";
 import Navigation from "../navigation/navigation";
-import NavModal from "../navModal/navModal";
 import { useState } from "react";
+import Modal from "../modal/modal";
 
 const Layout: React.FC = () => {
   const [isNavModalOpen, setIsNavModalOpen] = useState(false);
@@ -19,13 +19,22 @@ const Layout: React.FC = () => {
         <div className={styles.headerNav}>
           <Navigation />
         </div>
-        <img src={navBtn} alt="navBtn" className={styles.navBtn} onClick={() => setIsNavModalOpen(true)}></img>
-        <NavModal active={isNavModalOpen} setActive={setIsNavModalOpen}>
-            <div className={styles.x} onClick={() => setIsNavModalOpen(false)}>
-              <span>+</span>
-            </div>
-            <Navigation setActiveModal={setIsNavModalOpen}/>
-        </NavModal>
+        <img
+          src={navBtn}
+          alt="navBtn"
+          className={styles.navBtn}
+          onClick={() => setIsNavModalOpen(true)}
+        ></img>
+        <Modal
+          active={isNavModalOpen}
+          setActive={setIsNavModalOpen}
+          wrapperElementId="nav-modal-root"
+          modalOverlayClass={styles.navModalOverlay}
+          modalContentClass={styles.navModalContent}
+          modalActiveClass={styles.activeModal}
+        >
+          <Navigation setActiveModal={setIsNavModalOpen} />
+        </Modal>
       </header>
       <main>
         <Outlet />

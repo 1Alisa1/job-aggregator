@@ -7,6 +7,8 @@ import IVacanciesFilter from "../../models/vacanciesFilterModel";
 import styles from "./homePage.module.scss";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Loader from "../../components/loader/loader";
+import Modal from "../../components/modal/modal";
+import filterIcon from "../../img/filter.svg";
 
 const ITEMS_PER_PAGE = 4;
 
@@ -48,6 +50,8 @@ const HomePage: React.FC = () => {
   );
 
   const [page, setPage] = useState(getPageFromSearchParams(searchParams));
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const queryParams = new URLSearchParams();
@@ -136,7 +140,16 @@ const HomePage: React.FC = () => {
         />
       </div>
       <div className={styles.vacanciesContainer}>
-        <SearchInput keyword={keyword} setKeyword={handleKeywordChange} />
+        <div className={styles.searchOptions}>
+          <div className={styles.optionsBtn}>
+            <img
+              src={filterIcon}
+              alt="filter"
+              onClick={() => setIsModalOpen(true)}
+            ></img>
+          </div>
+          <SearchInput keyword={keyword} setKeyword={handleKeywordChange} />
+        </div>
         {loading && <Loader />}
         {error && <div>Error!</div>}
         {!loading && !error && response && (
@@ -149,6 +162,20 @@ const HomePage: React.FC = () => {
           />
         )}
       </div>
+      <Modal
+        active={isModalOpen}
+        setActive={setIsModalOpen}
+        wrapperElementId="modal-root"
+        modalOverlayClass={styles.filterModalOverlay}
+        modalActiveClass={styles.activeModal}
+      >
+        <VacancySearchFilter
+          filter={filter}
+          setFilter={handleFilterChange}
+          handleResetAll={resetAllSearchParams}
+          setActiveModal={setIsModalOpen}
+        />
+      </Modal>
     </section>
   );
 };
