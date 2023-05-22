@@ -5,12 +5,14 @@ interface SalaryFilterInputProps {
   placeholder: string;
   value: string;
   setValue: (value: string) => void;
+  dataElem: string;
 }
 
 const SalaryFilterInput: React.FC<SalaryFilterInputProps> = ({
   placeholder,
   value,
   setValue,
+  dataElem,
 }) => {
   return (
     <Input
@@ -21,6 +23,7 @@ const SalaryFilterInput: React.FC<SalaryFilterInputProps> = ({
       onChange={(e) => setValue(e.target.value)}
       pointerEvents={true}
       rightSection={<UpAndDownBtns value={value} setValue={setValue} />}
+      dataElem={dataElem}
     />
   );
 };

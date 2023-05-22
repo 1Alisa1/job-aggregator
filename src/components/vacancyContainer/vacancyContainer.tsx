@@ -7,11 +7,13 @@ import { useFavoriteVacanciesContext } from "../../context/context";
 interface VacancyContainerProps {
   children: React.ReactNode;
   data: IVacancy;
+  dataElemStarBtn: string;
 }
 
 const VacancyContainer: React.FC<VacancyContainerProps> = ({
   children,
   data,
+  dataElemStarBtn
 }) => {
   const { favoriteVacancies, setFavoriteVacancies } =
     useFavoriteVacanciesContext();
@@ -38,6 +40,7 @@ const VacancyContainer: React.FC<VacancyContainerProps> = ({
           e.preventDefault();
           setIsFavorite((prev) => !prev);
         }}
+        data-elem={dataElemStarBtn}
       >
         <StarIcon saveVacancy={isFavorite} />
       </div>

@@ -18,7 +18,7 @@ const VacancySearchFilter: React.FC<VacancySearchFilterProps> = ({
   filter,
   setFilter,
   handleResetAll,
-  setActiveModal
+  setActiveModal,
 }) => {
   const { loading, response, error } = useCategories();
 
@@ -50,7 +50,7 @@ const VacancySearchFilter: React.FC<VacancySearchFilterProps> = ({
       paymentFrom: paymentFrom ? Number(paymentFrom) : undefined,
       paymentTo: paymentTo ? Number(paymentTo) : undefined,
     });
-    if(setActiveModal) {
+    if (setActiveModal) {
       setActiveModal(false);
     }
   };
@@ -73,6 +73,7 @@ const VacancySearchFilter: React.FC<VacancySearchFilterProps> = ({
               value={industryValue?.title ?? ""}
               setActive={setActive}
               active={active}
+              dataElem="industry-select"
             />
           </div>
           <div
@@ -105,6 +106,7 @@ const VacancySearchFilter: React.FC<VacancySearchFilterProps> = ({
               placeholder="От"
               value={paymentFrom}
               setValue={setPaymentFrom}
+              dataElem="salary-from-input"
             />
           </div>
           <div className={styles.selector}>
@@ -112,10 +114,15 @@ const VacancySearchFilter: React.FC<VacancySearchFilterProps> = ({
               placeholder="До"
               value={paymentTo}
               setValue={setPaymentTo}
+              dataElem="salary-to-input"
             />
           </div>
         </SearchCategory>
-        <button className={styles.btnApply} onClick={handleApplyButtonClick}>
+        <button
+          className={styles.btnApply}
+          onClick={handleApplyButtonClick}
+          data-elem="search-button"
+        >
           Применить
         </button>
       </div>

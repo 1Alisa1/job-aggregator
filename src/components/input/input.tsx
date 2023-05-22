@@ -10,6 +10,7 @@ interface InputProps {
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   rightSection: React.ReactNode;
   pointerEvents?: boolean;
+  dataElem: string;
 }
 const Input: React.FC<InputProps> = ({
   active,
@@ -21,22 +22,28 @@ const Input: React.FC<InputProps> = ({
   onClick,
   onChange,
   rightSection,
-  pointerEvents
+  pointerEvents,
+  dataElem,
 }) => {
   return (
     <div className={styles.inputWrapper}>
-      <div className={styles.rightSection} style={{ pointerEvents: pointerEvents? "auto" : "none"}}>{rightSection}</div>
+      <div
+        className={styles.rightSection}
+        style={{ pointerEvents: pointerEvents ? "auto" : "none" }}
+      >
+        {rightSection}
+      </div>
       <input
-        readOnly = {readonly ? readonly : false}
-        type={type ? type : ''}
+        readOnly={readonly ? readonly : false}
+        type={type ? type : ""}
         className={styles.input + (active ? " " + styles.active : "")}
         value={value}
         onChange={onChange}
         onClick={onClick}
         placeholder={placeholder}
         autoComplete="off"
+        data-elem={dataElem}
       ></input>
-      
     </div>
   );
 };

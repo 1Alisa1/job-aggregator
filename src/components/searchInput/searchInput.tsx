@@ -22,7 +22,9 @@ const SearchInput: React.FC<SearchInputProps> = ({ keyword, setKeyword }) => {
         <img src={search} alt="search"></img>
       </div>
       <div className={styles.rightSection}>
-        <button onClick={() => setKeyword(value)}>Поиск</button>
+        <button onClick={() => setKeyword(value)} data-elem="search-button">
+          Поиск
+        </button>
       </div>
       <input
         type="search"
@@ -31,6 +33,7 @@ const SearchInput: React.FC<SearchInputProps> = ({ keyword, setKeyword }) => {
         placeholder="Введите название вакансии"
         autoComplete="off"
         onChange={(e) => setValue(e.target.value)}
+        data-elem="search-input"
       ></input>
     </div>
   );

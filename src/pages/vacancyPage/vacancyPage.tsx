@@ -5,11 +5,14 @@ import VacancyContainer from "../../components/vacancyContainer/vacancyContainer
 import BriefJobDescription from "../../components/briefJobDescription/briefJobDescription";
 
 const VacancyPage: React.FC = () => {
-  const { state: data = {}} = useLocation();
+  const { state: data = {} } = useLocation();
 
   return (
     <section className={styles.vacancyDelailsSection}>
-      <VacancyContainer data={data}>
+      <VacancyContainer
+        data={data}
+        dataElemStarBtn={`vacancy-${data.id}-shortlist-button`}
+      >
         <BriefJobDescription
           title={data.profession}
           payment_from={data.payment_from}

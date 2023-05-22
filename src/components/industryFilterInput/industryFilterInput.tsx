@@ -5,12 +5,14 @@ interface IndustryFilterInputProps {
   value: string;
   setActive(active: boolean): void;
   active: boolean;
+  dataElem: string;
 }
 
 const IndustryFilterInput: React.FC<IndustryFilterInputProps> = ({
   value,
   setActive,
   active,
+  dataElem,
 }) => {
   const bodyClickHandler = () => {
     setActive(false);
@@ -31,7 +33,8 @@ const IndustryFilterInput: React.FC<IndustryFilterInputProps> = ({
         e.stopPropagation();
         setActive(!active);
       }}
-      rightSection={<DropDownIcon active={active}/>}
+      rightSection={<DropDownIcon active={active} />}
+      dataElem={dataElem}
     />
   );
 };

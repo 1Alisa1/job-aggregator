@@ -23,8 +23,7 @@ const VacanciesContainer: React.FC<VacanciesContainerProps> = ({
   page,
   setPage,
 }) => {
-
-  const handlePageClick = (event: {selected: number}) => {
+  const handlePageClick = (event: { selected: number }) => {
     setPage(event.selected);
   };
 
@@ -32,8 +31,16 @@ const VacanciesContainer: React.FC<VacanciesContainerProps> = ({
     <>
       <div className={styles.vacanciesContainer}>
         {vacancies.map((el) => (
-          <Link to={`/vacancies/${el.id}`} state={el} key={el.id}>
-            <VacancyContainer data={el}>
+          <Link
+            to={`/vacancies/${el.id}`}
+            state={el}
+            key={el.id}
+            data-elem={`vacancy-${el.id}`}
+          >
+            <VacancyContainer
+              data={el}
+              dataElemStarBtn={`vacancy-${el.id}-shortlist-button`}
+            >
               <BriefJobDescription
                 title={el.profession}
                 payment_from={el.payment_from}
@@ -49,20 +56,18 @@ const VacanciesContainer: React.FC<VacanciesContainerProps> = ({
       </div>
       <ReactPaginate
         breakLabel="..."
-        nextLabel={<ArrowIcon deg={270}/>}
+        nextLabel={<ArrowIcon deg={270} />}
         onPageChange={handlePageClick}
         pageRangeDisplayed={3}
         marginPagesDisplayed={2}
         pageCount={pageCount}
-        previousLabel={
-          <ArrowIcon deg={90}/>
-        }
+        previousLabel={<ArrowIcon deg={90} />}
         renderOnZeroPageCount={null}
         forcePage={page}
         containerClassName={styles.pagination}
         pageClassName={styles.pageNum}
-        previousClassName={styles.pageNum + (' ' + styles.arrow)}
-        nextClassName={styles.pageNum + (' ' + styles.arrow)}
+        previousClassName={styles.pageNum + (" " + styles.arrow)}
+        nextClassName={styles.pageNum + (" " + styles.arrow)}
         disabledClassName={styles.disabled}
         activeClassName={styles.active}
       />
