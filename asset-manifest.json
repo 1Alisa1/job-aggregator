@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/job-aggregator/static/css/main.069b7c4c.css",
-    "main.js": "/job-aggregator/static/js/main.6d866e23.js",
+    "main.js": "/job-aggregator/static/js/main.f3005457.js",
     "static/media/notFoundImg.svg": "/job-aggregator/static/media/notFoundImg.e971983585ef9132b066d5ec6b8321e4.svg",
     "static/media/inter-v12-cyrillic_latin-700.woff": "/job-aggregator/static/media/inter-v12-cyrillic_latin-700.fde0b548bdfd88ac57cf.woff",
     "static/media/inter-v12-cyrillic_latin-600.woff": "/job-aggregator/static/media/inter-v12-cyrillic_latin-600.5e2aa84562f3db1b1af8.woff",
@@ -18,10 +18,10 @@
     "static/media/search.svg": "/job-aggregator/static/media/search.06548291525b262aaf6bfddeb6eee7ea.svg",
     "static/media/navBtn.svg": "/job-aggregator/static/media/navBtn.2e2ac3378fe9af27811ac311edc54f98.svg",
     "main.069b7c4c.css.map": "/job-aggregator/static/css/main.069b7c4c.css.map",
-    "main.6d866e23.js.map": "/job-aggregator/static/js/main.6d866e23.js.map"
+    "main.f3005457.js.map": "/job-aggregator/static/js/main.f3005457.js.map"
   },
   "entrypoints": [
     "static/css/main.069b7c4c.css",
-    "static/js/main.6d866e23.js"
+    "static/js/main.f3005457.js"
   ]
 }
