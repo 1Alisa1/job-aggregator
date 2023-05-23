@@ -82,7 +82,7 @@ const HomePage: React.FC = () => {
   );
 
   let total = response?.total ?? 0;
-  
+
   if (total > 500) {
     total = 500;
   }
@@ -145,17 +145,19 @@ const HomePage: React.FC = () => {
           </div>
           <SearchInput keyword={keyword} setKeyword={handleKeywordChange} />
         </div>
-        {loading && <Loader />}
-        {error && <div>Error!</div>}
-        {!loading && !error && response && (
-          <VacanciesContainer
-            vacancies={response.objects}
-            itemsPerPage={ITEMS_PER_PAGE}
-            pageCount={pageCount}
-            page={page}
-            setPage={setPage}
-          />
-        )}
+        <div className={styles.wrapper}>
+          {loading && <Loader />}
+          {error && <div>Error!</div>}
+          {!loading && !error && response && (
+            <VacanciesContainer
+              vacancies={response.objects}
+              itemsPerPage={ITEMS_PER_PAGE}
+              pageCount={pageCount}
+              page={page}
+              setPage={setPage}
+            />
+          )}
+        </div>
       </div>
       <Modal
         active={isModalOpen}
