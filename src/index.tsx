@@ -5,12 +5,14 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import ScrollToTop from "./components/scrollToTop/scrollToTop";
 
+const baseName = process.env.REACT_APP_BASE_NAME;
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={baseName}>
       <ScrollToTop>
         <App />
       </ScrollToTop>
