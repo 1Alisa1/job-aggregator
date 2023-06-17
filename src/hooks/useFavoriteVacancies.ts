@@ -1,11 +1,11 @@
-import IVacanciesResponse, { IVacancy } from "../models/vacancyModel";
+import { IVacanciesResponse, IVacancy } from "../models";
 import { useApi } from "./useApi";
 
-export function useFavoriteVacancies(
+export const useFavoriteVacancies = (
   ids: IVacancy["id"][],
   itemsPerPage: number,
   page: number
-) {
+) => {
   const idsList = ids.map((id, i) => `ids[${i}]=${id}`).join("&");
 
   const queryParams = new URLSearchParams();
@@ -25,5 +25,3 @@ export function useFavoriteVacancies(
 
   return { loading, response: vacancies, error };
 }
-
-export default useFavoriteVacancies;

@@ -1,10 +1,10 @@
-import styles from "./vacancyPage.module.scss";
-import VacancyDetails from "../../components/vacancyDetails/vacancyDetails";
 import { useLocation } from "react-router-dom";
-import VacancyContainer from "../../components/vacancyContainer/vacancyContainer";
-import BriefJobDescription from "../../components/briefJobDescription/briefJobDescription";
+import { VacancyDetails } from "../../components";
+import { VacancyContainer } from "../../components";
+import { BriefJobDescription } from "../../components";
+import styles from "./vacancyPage.module.scss";
 
-const VacancyPage: React.FC = () => {
+export const VacancyPage: React.FC = () => {
   const { state: data = {} } = useLocation();
 
   return (
@@ -27,5 +27,3 @@ const VacancyPage: React.FC = () => {
     </section>
   );
 };
-
-export { VacancyPage };

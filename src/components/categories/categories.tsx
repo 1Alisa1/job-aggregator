@@ -1,5 +1,5 @@
-import ICategory from "../../models/categoryModel";
-import Loader from "../loader/loader";
+import { ICategory } from "../../models";
+import { Loader } from "../index";
 import styles from "./categories.module.scss";
 
 interface CategoriesProps {
@@ -10,7 +10,7 @@ interface CategoriesProps {
   categories: ICategory[] | null;
   setIndustryValue: (value: ICategory) => void;
 }
-const Categories: React.FC<CategoriesProps> = ({
+export const Categories: React.FC<CategoriesProps> = ({
   active,
   setActive,
   loading,
@@ -44,5 +44,3 @@ const Categories: React.FC<CategoriesProps> = ({
     </div>
   );
 };
-
-export default Categories;

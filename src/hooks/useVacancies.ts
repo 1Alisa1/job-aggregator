@@ -1,13 +1,12 @@
-import IVacanciesFilter from "../models/vacanciesFilterModel";
-import IVacanciesResponse from "../models/vacancyModel";
+import { IVacanciesFilter, IVacanciesResponse} from "../models";
 import { useApi } from "./useApi";
 
-export function useVacancies(
+export const useVacancies = (
   filter: IVacanciesFilter,
   keyword: string,
   itemsPerPage: number,
   page: number
-) {
+) => {
   const queryParams = new URLSearchParams();
 
   queryParams.set("published", "1");

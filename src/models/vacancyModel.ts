@@ -13,7 +13,7 @@ export interface IVacancy {
   vacancyRichText: string;
 }
 
-export default interface IVacanciesResponse {
+export interface IVacanciesResponse {
   objects: IVacancy[];
   total: number;
 }

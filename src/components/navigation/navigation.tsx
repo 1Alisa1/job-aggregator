@@ -5,7 +5,7 @@ interface NavigationProps {
   setActiveModal?: (value: React.SetStateAction<boolean>) => void;
 }
 
-const Navigation: React.FC<NavigationProps> = ({setActiveModal}) => {
+export const Navigation: React.FC<NavigationProps> = ({setActiveModal}) => {
   const activeLink = {
     color: "#5E96FC",
   };
@@ -17,7 +17,7 @@ const Navigation: React.FC<NavigationProps> = ({setActiveModal}) => {
   }
 
   return (
-    <nav>
+    <nav className={styles.nav}>
       <div className={styles.vacancies}>
         <NavLink
           to="/vacancies"
@@ -39,5 +39,3 @@ const Navigation: React.FC<NavigationProps> = ({setActiveModal}) => {
     </nav>
   );
 };
-
-export default Navigation;

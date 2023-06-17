@@ -7,7 +7,7 @@ interface SearchInputProps {
   setKeyword: (search: string) => void;
 }
 
-const SearchInput: React.FC<SearchInputProps> = ({ keyword, setKeyword }) => {
+export const SearchInput: React.FC<SearchInputProps> = ({ keyword, setKeyword }) => {
   const [value, setValue] = useState(keyword);
 
   useEffect(() => {
@@ -38,5 +38,3 @@ const SearchInput: React.FC<SearchInputProps> = ({ keyword, setKeyword }) => {
     </div>
   );
 };
-
-export default SearchInput;

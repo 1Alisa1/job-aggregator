@@ -1,4 +1,4 @@
-export default interface ICategory {
+export interface ICategory {
   title: string;
   key: number;
 }

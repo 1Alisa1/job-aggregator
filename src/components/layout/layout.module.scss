@@ -1,7 +1,7 @@
 @use "/src/scss/abstracts/variables" as *;
 @use "/src/scss/abstracts/mixins" as *;
 
-header {
+.header {
   display: flex;
   align-items: center;
   @include large {

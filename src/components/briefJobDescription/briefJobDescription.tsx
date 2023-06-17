@@ -11,7 +11,7 @@ interface BriefJobDescriptionProps {
   isDetail: boolean;
 }
 
-const BriefJobDescription: React.FC<BriefJobDescriptionProps> = ({
+export const BriefJobDescription: React.FC<BriefJobDescriptionProps> = ({
   title,
   payment_from,
   payment_to,
@@ -68,5 +68,3 @@ const BriefJobDescription: React.FC<BriefJobDescriptionProps> = ({
     </div>
   );
 };
-
-export default BriefJobDescription;

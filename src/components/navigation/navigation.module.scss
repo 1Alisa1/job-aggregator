@@ -1,7 +1,7 @@
 @use "/src/scss/abstracts/variables" as *;
 @use "/src/scss/abstracts/mixins" as *;
 
-nav {
+.nav {
   display: flex;
   gap: 60px;
   @include small {

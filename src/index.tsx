@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "../src/scss/index.scss";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import ScrollToTop from "./components/scrollToTop/scrollToTop";
+import { ScrollToTop } from "./components";
+import "../src/scss/index.scss";
 
 const baseName = process.env.REACT_APP_BASE_NAME;
 

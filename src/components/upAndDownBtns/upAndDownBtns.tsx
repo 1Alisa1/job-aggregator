@@ -6,7 +6,7 @@ interface UpAndDownBtnsProps {
   setValue(value: string): void;
 }
 
-const UpAndDownBtns: React.FC<UpAndDownBtnsProps> = ({value, setValue}) => {
+export const UpAndDownBtns: React.FC<UpAndDownBtnsProps> = ({value, setValue}) => {
   useEffect(() => {
     if (Number(value) <= 0) {
     setValue('');
@@ -48,5 +48,3 @@ const UpAndDownBtns: React.FC<UpAndDownBtnsProps> = ({value, setValue}) => {
     </div>
   );
 };
-
-export default UpAndDownBtns;

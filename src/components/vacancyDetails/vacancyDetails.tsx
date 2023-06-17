@@ -4,7 +4,7 @@ interface VacancyDetailsProps {
   vacancyDetails: string;
 }
 
-const VacancyDetails: React.FC<VacancyDetailsProps> = ({ vacancyDetails }) => {
+export const VacancyDetails: React.FC<VacancyDetailsProps> = ({ vacancyDetails }) => {
   return (
     <div className={styles.vacancyDetailsContainer}>
       <div
@@ -14,5 +14,3 @@ const VacancyDetails: React.FC<VacancyDetailsProps> = ({ vacancyDetails }) => {
     </div>
   );
 };
-
-export default VacancyDetails;

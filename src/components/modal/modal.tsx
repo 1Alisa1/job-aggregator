@@ -1,4 +1,4 @@
-import Portal from "../portal/portal";
+import { Portal } from "../index";
 import styles from "./modal.module.scss";
 
 interface ModalProps {
@@ -11,7 +11,7 @@ interface ModalProps {
   modalActiveClass?: string;
 }
 
-const Modal: React.FC<ModalProps> = ({
+export const Modal: React.FC<ModalProps> = ({
   active,
   setActive,
   children,
@@ -43,5 +43,3 @@ const Modal: React.FC<ModalProps> = ({
     </Portal>
   );
 };
-
-export default Modal;

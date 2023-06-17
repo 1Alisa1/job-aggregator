@@ -1,7 +1,7 @@
-import ICategory from "../models/categoryModel";
+import { ICategory } from "../models";
 import { useApi } from "./useApi";
 
-export function useCategories() {
+export const useCategories = () => {
   const { loading, response, error } = useApi<ICategory[]>(`catalogues/`);
 
   let categories: ICategory[] | null = null;

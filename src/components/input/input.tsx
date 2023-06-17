@@ -11,7 +11,7 @@ interface InputProps {
   pointerEvents?: boolean;
   dataElem: string;
 }
-const Input: React.FC<InputProps> = ({
+export const Input: React.FC<InputProps> = ({
   active,
   value,
   placeholder,
@@ -45,5 +45,3 @@ const Input: React.FC<InputProps> = ({
     </div>
   );
 };
-
-export default Input;

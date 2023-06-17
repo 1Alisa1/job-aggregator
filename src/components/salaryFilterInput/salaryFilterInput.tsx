@@ -1,5 +1,5 @@
-import Input from "../input/input";
-import UpAndDownBtns from "../upAndDownBtns/upAndDownBtns";
+import { Input } from "../index";
+import { UpAndDownBtns } from "../index";
 
 interface SalaryFilterInputProps {
   placeholder: string;
@@ -8,7 +8,7 @@ interface SalaryFilterInputProps {
   dataElem: string;
 }
 
-const SalaryFilterInput: React.FC<SalaryFilterInputProps> = ({
+export const SalaryFilterInput: React.FC<SalaryFilterInputProps> = ({
   placeholder,
   value,
   setValue,
@@ -27,5 +27,3 @@ const SalaryFilterInput: React.FC<SalaryFilterInputProps> = ({
     />
   );
 };
-
-export default SalaryFilterInput;

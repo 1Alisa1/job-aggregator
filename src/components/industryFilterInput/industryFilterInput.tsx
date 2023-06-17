@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import Input from "../input/input";
-import DropDownIcon from "../dropDownIcon/dropDownIcon";
+import { Input } from "../index";
+import { DropDownIcon } from "../index";
 interface IndustryFilterInputProps {
   value: string;
   setActive: (active: boolean) => void;
@@ -8,7 +8,7 @@ interface IndustryFilterInputProps {
   dataElem: string;
 }
 
-const IndustryFilterInput: React.FC<IndustryFilterInputProps> = ({
+export const IndustryFilterInput: React.FC<IndustryFilterInputProps> = ({
   value,
   setActive,
   active,
@@ -38,5 +38,3 @@ const IndustryFilterInput: React.FC<IndustryFilterInputProps> = ({
     />
   );
 };
-
-export default IndustryFilterInput;

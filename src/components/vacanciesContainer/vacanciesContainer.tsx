@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { IVacancy } from "../../models/vacancyModel";
-import BriefJobDescription from "../briefJobDescription/briefJobDescription";
-import VacancyContainer from "../vacancyContainer/vacancyContainer";
-import styles from "./vacanciesContainer.module.scss";
 import ReactPaginate from "react-paginate";
-import ArrowIcon from "../arrowIcon/arrowIcon";
+import { IVacancy } from "../../models/vacancyModel";
+import { BriefJobDescription } from "../index";
+import { VacancyContainer } from "../index";
+import { ArrowIcon } from "../index";
+import styles from "./vacanciesContainer.module.scss";
 
 interface VacanciesContainerProps {
   vacancies: IVacancy[];
@@ -14,7 +14,7 @@ interface VacanciesContainerProps {
   setPage(value: number): void;
 }
 
-const VacanciesContainer: React.FC<VacanciesContainerProps> = ({
+export const VacanciesContainer: React.FC<VacanciesContainerProps> = ({
   vacancies,
   pageCount,
   page,
@@ -71,5 +71,3 @@ const VacanciesContainer: React.FC<VacanciesContainerProps> = ({
     </>
   );
 };
-
-export default VacanciesContainer;

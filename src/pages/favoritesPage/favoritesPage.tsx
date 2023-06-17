@@ -1,10 +1,10 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
-import VacanciesContainer from "../../components/vacanciesContainer/vacanciesContainer";
-import { useFavoriteVacanciesContext } from "../../context/context";
-import useFavoriteVacancies from "../../hooks/useFavoriteVacancies";
-import styles from "./favoritesPage.module.scss";
 import { useEffect, useState } from "react";
-import Loader from "../../components/loader/loader";
+import { VacanciesContainer } from "../../components";
+import { useFavoriteVacanciesContext } from "../../context/context";
+import { Loader } from "../../components";
+import { useFavoriteVacancies } from "../../hooks";
+import styles from "./favoritesPage.module.scss";
 
 const ITEMS_PER_PAGE = 4;
 
@@ -14,7 +14,7 @@ const getPageFromSearchParams = (searchParams: URLSearchParams) => {
   return page ? Number(page) - 1 : 0;
 };
 
-const FavoritesPage: React.FC = () => {
+export const FavoritesPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const { favoriteVacancies, setFavoriteVacancies } =
@@ -74,5 +74,3 @@ const FavoritesPage: React.FC = () => {
     </section>
   );
 };
-
-export { FavoritesPage };

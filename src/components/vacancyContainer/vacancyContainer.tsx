@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import StarIcon from "../starIcon/starIcon";
-import styles from "./vacancyContainer.module.scss";
-import { IVacancy } from "../../models/vacancyModel";
+import { StarIcon } from "../index";
+import { IVacancy } from "../../models";
 import { useFavoriteVacanciesContext } from "../../context/context";
+import styles from "./vacancyContainer.module.scss";
 
 interface VacancyContainerProps {
   children: React.ReactNode;
@@ -10,7 +10,7 @@ interface VacancyContainerProps {
   dataElemStarBtn: string;
 }
 
-const VacancyContainer: React.FC<VacancyContainerProps> = ({
+export const VacancyContainer: React.FC<VacancyContainerProps> = ({
   children,
   data,
   dataElemStarBtn
@@ -48,5 +48,3 @@ const VacancyContainer: React.FC<VacancyContainerProps> = ({
     </div>
   );
 };
-
-export default VacancyContainer;

@@ -4,7 +4,7 @@ interface StarIconProps {
   saveVacancy: boolean;
 }
 
-const StarIcon: React.FC<StarIconProps> = ({saveVacancy}) => {
+export const StarIcon: React.FC<StarIconProps> = ({saveVacancy}) => {
   return (
     <svg
       className={styles.starIcon + (saveVacancy ? ' ' + styles.active : '')}
@@ -20,5 +20,3 @@ const StarIcon: React.FC<StarIconProps> = ({saveVacancy}) => {
     </svg>
   );
 };
-
-export default StarIcon;

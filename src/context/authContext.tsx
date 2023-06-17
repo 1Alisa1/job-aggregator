@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import useAuthentication from "../hooks/useAuthentication";
+import { useAuthentication } from "../hooks";
 
 interface IAuthContextValue {
   loading: boolean;

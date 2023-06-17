@@ -1,20 +1,20 @@
-import styles from "./vacanciesSearchFilter.module.scss";
 import { useState } from "react";
-import SalaryFilterInput from "../salaryFilterInput/salaryFilterInput";
-import SearchCategory from "../searchCategory/searchCategory";
-import IndustryFilterInput from "../industryFilterInput/industryFilterInput";
-import { useCategories } from "../../hooks/useCategories";
-import IVacanciesFilter from "../../models/vacanciesFilterModel";
-import Categories from "../categories/categories";
+import { SalaryFilterInput } from "../index";
+import { SearchCategory } from "../index";
+import { IndustryFilterInput } from "../index";
+import { Categories } from "../index";
+import { useCategories } from "../../hooks";
+import { IVacanciesFilter } from "../../models";
+import styles from "./vacanciesSearchFilter.module.scss";
 
-interface VacancySearchFilterProps {
+interface VacanciesSearchFilterProps {
   filter: IVacanciesFilter;
   setFilter: (value: IVacanciesFilter) => void;
   handleResetAll: () => void;
   setActiveModal?: (value: React.SetStateAction<boolean>) => void;
 }
 
-const VacancySearchFilter: React.FC<VacancySearchFilterProps> = ({
+export const VacanciesSearchFilter: React.FC<VacanciesSearchFilterProps> = ({
   filter,
   setFilter,
   handleResetAll,
@@ -114,5 +114,3 @@ const VacancySearchFilter: React.FC<VacancySearchFilterProps> = ({
     </div>
   );
 };
-
-export default VacancySearchFilter;

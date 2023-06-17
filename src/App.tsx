@@ -1,9 +1,9 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { HomePage } from "./pages/homePage/homePage";
-import { FavoritesPage } from "./pages/favoritesPage/favoritesPage";
-import { EmptyState } from "./pages/emptyState/emptyState";
-import { Layout } from "./components/layout/layout";
-import { VacancyPage } from "./pages/vacancyPage/vacancyPage";
+import { HomePage } from "./pages";
+import { FavoritesPage } from "./pages";
+import { EmptyState } from "./pages";
+import { Layout } from "./components";
+import { VacancyPage } from "./pages";
 import { FavoriteVacanciesProvider } from "./context/context";
 import { AuthContextProvider } from "./context/authContext";
 

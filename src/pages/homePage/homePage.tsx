@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import SearchInput from "../../components/searchInput/searchInput";
-import VacanciesContainer from "../../components/vacanciesContainer/vacanciesContainer";
-import VacanciesSearchFilter from "../../components/vacanciesSearchFilter/vacanciesSearchFilter";
-import { useVacancies } from "../../hooks/useVacancies";
-import IVacanciesFilter from "../../models/vacanciesFilterModel";
-import styles from "./homePage.module.scss";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import Loader from "../../components/loader/loader";
-import Modal from "../../components/modal/modal";
+import { SearchInput } from "../../components";
+import { VacanciesContainer } from "../../components";
+import { VacanciesSearchFilter } from "../../components";
+import { Loader } from "../../components";
+import { Modal } from "../../components";
+import { useVacancies } from "../../hooks";
+import { IVacanciesFilter } from "../../models";
 import filterIcon from "../../img/filter.svg";
+import styles from "./homePage.module.scss";
 
 const ITEMS_PER_PAGE = 4;
 
@@ -35,7 +35,7 @@ const getPageFromSearchParams = (searchParams: URLSearchParams) => {
   return page ? Number(page) - 1 : 0;
 };
 
-const HomePage: React.FC = () => {
+export const HomePage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
 
@@ -176,5 +176,3 @@ const HomePage: React.FC = () => {
     </section>
   );
 };
-
-export { HomePage };

@@ -8,7 +8,7 @@ interface PortalProps {
   wrapperElementId?: string;
 }
 
-const Portal: React.FC<PortalProps> = ({
+export const Portal: React.FC<PortalProps> = ({
   children,
   wrapperElementId = DEFAULT_WRAPPER_ID,
 }) => {
@@ -32,5 +32,3 @@ const Portal: React.FC<PortalProps> = ({
 
   return createPortal(children, wrapperElement);
 };
-
-export default Portal;

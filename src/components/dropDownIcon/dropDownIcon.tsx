@@ -4,7 +4,7 @@ interface DropDownIconProps {
   active: boolean
 }
 
-const DropDownIcon: React.FC<DropDownIconProps> = ({active}) => {
+export const DropDownIcon: React.FC<DropDownIconProps> = ({active}) => {
   return (
     <svg className={styles.dropDownIcon + (active ? ' ' + styles.active : '')}
       width="16"
@@ -21,5 +21,3 @@ const DropDownIcon: React.FC<DropDownIconProps> = ({active}) => {
     </svg>
   );
 };
-
-export default DropDownIcon;

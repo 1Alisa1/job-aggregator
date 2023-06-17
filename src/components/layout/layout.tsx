@@ -1,17 +1,17 @@
 import { Link, Outlet } from "react-router-dom";
+import { useState } from "react";
+import { Navigation } from "../index";
+import { Modal } from "../index";
 import logo from "../../img/logo.svg";
 import navBtn from "../../img/navBtn.svg";
 import styles from "./layout.module.scss";
-import Navigation from "../navigation/navigation";
-import { useState } from "react";
-import Modal from "../modal/modal";
 
-const Layout: React.FC = () => {
+export const Layout: React.FC = () => {
   const [isNavModalOpen, setIsNavModalOpen] = useState(false);
   
   return (
     <>
-      <header>
+      <header className={styles.header}>
         <div className={styles.headerLogo}>
           <Link to="/vacancies">
             <img src={logo} alt="Jobored"></img>
@@ -43,5 +43,3 @@ const Layout: React.FC = () => {
     </>
   );
 };
-
-export { Layout };

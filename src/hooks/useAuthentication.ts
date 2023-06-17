@@ -49,7 +49,7 @@ const getApiUrl = () => {
 const getAuthByPassUrl = () =>
   `${getApiUrl()}/oauth2/password?${getUrlParams()}`;
 
-const useAuthentication = () => {
+export const useAuthentication = () => {
   const { loading, response, error } = useFetch<IAuthenticationResponse>(
     getAuthByPassUrl(),
     {
@@ -67,5 +67,3 @@ const useAuthentication = () => {
 
   return { loading, accessToken, error };
 };
-
-export default useAuthentication;

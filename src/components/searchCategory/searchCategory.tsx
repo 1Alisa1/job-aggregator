@@ -4,7 +4,7 @@ interface SearchCategoryProps {
   children: React.ReactNode;
   name: string;
 }
-const SearchCategory: React.FC<SearchCategoryProps> = ({ children, name }) => {
+export const SearchCategory: React.FC<SearchCategoryProps> = ({ children, name }) => {
   return (
     <div className={styles.category}>
       <span className={styles.optionName}>{name}</span>
@@ -12,5 +12,3 @@ const SearchCategory: React.FC<SearchCategoryProps> = ({ children, name }) => {
     </div>
   );
 };
-
-export default SearchCategory;

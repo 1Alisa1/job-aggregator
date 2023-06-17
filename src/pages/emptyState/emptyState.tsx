@@ -1,7 +1,8 @@
-import styles from "./emptyState.module.scss";
-import notFoundImg from "../../img/notFoundImg.svg";
 import { useNavigate } from "react-router-dom";
-const EmptyState: React.FC = () => {
+import notFoundImg from "../../img/notFoundImg.svg";
+import styles from "./emptyState.module.scss";
+
+export const EmptyState: React.FC = () => {
   const navigate = useNavigate();
   
   return (
@@ -14,5 +15,3 @@ const EmptyState: React.FC = () => {
   </section>
   );
 }
-
-export {EmptyState};

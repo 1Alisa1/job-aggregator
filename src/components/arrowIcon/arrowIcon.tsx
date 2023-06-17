@@ -4,7 +4,7 @@ interface ArrowIconProps {
   deg: number;
 }
 
-const ArrowIcon: React.FC<ArrowIconProps> = ({deg}) => {
+export const ArrowIcon: React.FC<ArrowIconProps> = ({deg}) => {
   return (
     <svg className={styles.arrowIcon} style={{transform: `rotate(${deg}deg)`}}
       width="16"
@@ -21,5 +21,3 @@ const ArrowIcon: React.FC<ArrowIconProps> = ({deg}) => {
     </svg>
   );
 };
-
-export default ArrowIcon;

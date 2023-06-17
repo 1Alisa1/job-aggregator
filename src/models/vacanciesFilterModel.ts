@@ -1,4 +1,4 @@
-export default interface IVacanciesFilter {
+export interface IVacanciesFilter {
   industryKey?: number;
   paymentFrom?: number;
   paymentTo?: number;
