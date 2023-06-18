@@ -65,7 +65,6 @@ export const FavoritesPage: React.FC = () => {
       {!loading && !error && response && (
         <VacanciesContainer
           vacancies={response.objects}
-          itemsPerPage={ITEMS_PER_PAGE}
           pageCount={pageCount}
           page={page}
           setPage={setPage}

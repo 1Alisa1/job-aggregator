@@ -8,7 +8,6 @@ import styles from "./vacanciesContainer.module.scss";
 
 interface VacanciesContainerProps {
   vacancies: IVacancy[];
-  itemsPerPage: number;
   pageCount: number;
   page: number;
   setPage(value: number): void;
@@ -51,23 +50,25 @@ export const VacanciesContainer: React.FC<VacanciesContainerProps> = ({
           </Link>
         ))}
       </div>
-      <ReactPaginate
-        breakLabel="..."
-        nextLabel={<ArrowIcon deg={270} />}
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
-        marginPagesDisplayed={2}
-        pageCount={pageCount}
-        previousLabel={<ArrowIcon deg={90} />}
-        renderOnZeroPageCount={null}
-        forcePage={page}
-        containerClassName={styles.pagination}
-        pageClassName={styles.pageNum}
-        previousClassName={styles.pageNum + (" " + styles.arrow)}
-        nextClassName={styles.pageNum + (" " + styles.arrow)}
-        disabledClassName={styles.disabled}
-        activeClassName={styles.active}
-      />
+      {pageCount > 1 && (
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel={<ArrowIcon deg={270} />}
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={3}
+          marginPagesDisplayed={2}
+          pageCount={pageCount}
+          previousLabel={<ArrowIcon deg={90} />}
+          renderOnZeroPageCount={null}
+          forcePage={page}
+          containerClassName={styles.pagination}
+          pageClassName={styles.pageNum}
+          previousClassName={styles.pageNum + (" " + styles.arrow)}
+          nextClassName={styles.pageNum + (" " + styles.arrow)}
+          disabledClassName={styles.disabled}
+          activeClassName={styles.active}
+        />
+      )}
     </>
   );
 };
