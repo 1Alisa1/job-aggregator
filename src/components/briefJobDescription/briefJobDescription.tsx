@@ -1,6 +1,26 @@
 import styles from "./briefJobDescription.module.scss";
 import location from "../../img/location.svg";
 
+const showSalary = (
+  payment_from: number,
+  payment_to: number,
+  currency: string
+) => {
+  let salary = "";
+
+  if (payment_to === 0 && payment_from) {
+    salary = `от ${payment_from} ${currency}`;
+  } else if (payment_from === 0 && payment_to) {
+    salary = `до ${payment_to} ${currency}`;
+  } else if (payment_from && payment_to) {
+    salary = `${payment_from} - ${payment_to} ${currency}`;
+  } else if (payment_from === 0 && payment_to === 0) {
+    salary = "не указана";
+  }
+
+  return salary;
+};
+
 interface BriefJobDescriptionProps {
   title: string;
   payment_from: number;
@@ -20,42 +40,35 @@ export const BriefJobDescription: React.FC<BriefJobDescriptionProps> = ({
   currency,
   isDetail,
 }) => {
-  let salary = "";
-
-  if (payment_to === 0 && payment_from) {
-    salary = `от ${payment_from} ${currency}`;
-  } else if (payment_from === 0 && payment_to) {
-    salary = `до ${payment_to} ${currency}`;
-  } else if (payment_from && payment_to) {
-    salary = `${payment_from} - ${payment_to} ${currency}`;
-  } else if (payment_from === 0 && payment_to === 0) {
-    salary = "не указана";
-  }
-
   return (
     <div
       className={
-        styles.shortDescription +
-        (isDetail ? " " + styles.shortDescriptionDetail : "")
+        isDetail
+          ? `${styles.shortDescription} ${styles.shortDescriptionDetail}`
+          : styles.shortDescription
       }
     >
       <div
-        className={styles.title + (isDetail ? " " + styles.titleDetail : "")}
+        className={
+          isDetail ? `${styles.title} ${styles.titleDetail}` : styles.title
+        }
       >
         {title}
       </div>
       <div className={styles.salaryAndSchedule}>
         <div
           className={
-            styles.salary + (isDetail ? " " + styles.salaryDetail : "")
+            isDetail ? `${styles.salary} ${styles.salaryDetail}` : styles.salary
           }
         >
-          з/п {salary}
+          з/п {showSalary(payment_from, payment_to, currency)}
         </div>
         <div className={styles.dot}>•</div>
         <div
           className={
-            styles.schedule + (isDetail ? " " + styles.sheduleDetail : "")
+            isDetail
+              ? `${styles.schedule} ${styles.sheduleDetail}`
+              : styles.schedule
           }
         >
           {schedule}

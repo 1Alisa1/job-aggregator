@@ -24,13 +24,13 @@ export const Modal: React.FC<ModalProps> = ({
     <Portal wrapperElementId={wrapperElementId}>
       <div
         className={`${styles.modalOverlay} ${modalOverlayClass} ${
-          active ? modalActiveClass : ""
+          active && modalActiveClass
         }`}
         onClick={() => setActive(false)}
       >
         <div
           className={`${styles.modalContent} ${modalContentClass} ${
-            active ? modalActiveClass : ""
+            active && modalActiveClass
           }`}
           onClick={(e) => e.stopPropagation()}
         >

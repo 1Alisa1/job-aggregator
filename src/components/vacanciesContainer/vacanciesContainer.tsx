@@ -63,8 +63,8 @@ export const VacanciesContainer: React.FC<VacanciesContainerProps> = ({
           forcePage={page}
           containerClassName={styles.pagination}
           pageClassName={styles.pageNum}
-          previousClassName={styles.pageNum + (" " + styles.arrow)}
-          nextClassName={styles.pageNum + (" " + styles.arrow)}
+          previousClassName={`${styles.pageNum} ${styles.arrow}`}
+          nextClassName={`${styles.pageNum} ${styles.arrow}`}
           disabledClassName={styles.disabled}
           activeClassName={styles.active}
         />

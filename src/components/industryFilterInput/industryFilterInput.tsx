@@ -21,7 +21,7 @@ export const IndustryFilterInput: React.FC<IndustryFilterInputProps> = ({
   useEffect(() => {
     document.body.addEventListener("click", bodyClickHandler);
     return () => document.body.removeEventListener("click", bodyClickHandler);
-  });
+  }, []);
 
   return (
     <Input

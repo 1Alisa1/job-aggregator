@@ -32,9 +32,9 @@ export const Input: React.FC<InputProps> = ({
         {rightSection}
       </div>
       <input
-        readOnly={readonly ? readonly : false}
-        type={type ? type : ""}
-        className={styles.input + (active ? " " + styles.active : "")}
+        readOnly={readonly && readonly}
+        type={type && type}
+        className={active ? `${styles.input} ${styles.active}` : styles.input}
         value={value}
         onChange={onChange}
         onClick={onClick}

@@ -22,9 +22,7 @@ export const VacanciesSearchFilter: React.FC<VacanciesSearchFilterProps> = ({
 }) => {
   const { loading, response, error } = useCategories();
 
-  const category = response
-    ? response?.find((el) => el.key === filter.industryKey)
-    : undefined;
+  const category = response && response?.find((el) => el.key === filter.industryKey);
 
   const [active, setActive] = useState(false);
 

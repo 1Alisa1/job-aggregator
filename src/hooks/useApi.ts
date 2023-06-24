@@ -53,7 +53,7 @@ export const useApi = <T>(url: string, options?: RequestInit) => {
 
   useEffect(() => {
     if (!authLoading && !authError && accessToken) {
-      setInnerUrl(url ? `${getApiUrl()}/${url}` : "");
+      setInnerUrl(url && `${getApiUrl()}/${url}`);
     }
   }, [authLoading, authError, accessToken, url]);
 

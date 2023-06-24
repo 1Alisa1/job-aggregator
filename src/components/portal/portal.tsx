@@ -1,7 +1,7 @@
-import { useLayoutEffect, useState } from 'react';
-import { createPortal } from 'react-dom';
+import { useLayoutEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
-const DEFAULT_WRAPPER_ID = 'react-portal-root';
+const DEFAULT_WRAPPER_ID = "react-portal-root";
 
 interface PortalProps {
   children: React.ReactNode;
@@ -19,7 +19,7 @@ export const Portal: React.FC<PortalProps> = ({
   useLayoutEffect(() => {
     let element = document.getElementById(wrapperElementId);
     if (!element) {
-      element = document.createElement('div');
+      element = document.createElement("div");
       element.id = wrapperElementId;
       document.body.appendChild(element);
     }
