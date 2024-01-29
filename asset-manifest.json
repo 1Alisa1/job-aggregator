@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/job-aggregator/static/css/main.d21e91af.css",
-    "main.js": "/job-aggregator/static/js/main.456a2998.js",
-    "static/media/notFoundImg.svg": "/job-aggregator/static/media/notFoundImg.e971983585ef9132b066d5ec6b8321e4.svg",
+    "main.css": "/job-aggregator/static/css/main.d681fcc1.css",
+    "main.js": "/job-aggregator/static/js/main.e5c4063d.js",
+    "static/media/notFoundImg.svg": "/job-aggregator/static/media/notFoundImg.b0a6c20b754430db6123ad44bd58ff12.svg",
     "static/media/inter-v12-cyrillic_latin-700.woff": "/job-aggregator/static/media/inter-v12-cyrillic_latin-700.fde0b548bdfd88ac57cf.woff",
     "static/media/inter-v12-cyrillic_latin-600.woff": "/job-aggregator/static/media/inter-v12-cyrillic_latin-600.5e2aa84562f3db1b1af8.woff",
     "static/media/inter-v12-cyrillic_latin-500.woff": "/job-aggregator/static/media/inter-v12-cyrillic_latin-500.4753236838a93bb49962.woff",
@@ -11,17 +11,17 @@
     "static/media/inter-v12-cyrillic_latin-600.woff2": "/job-aggregator/static/media/inter-v12-cyrillic_latin-600.1b2f33f663cc523817a1.woff2",
     "static/media/inter-v12-cyrillic_latin-500.woff2": "/job-aggregator/static/media/inter-v12-cyrillic_latin-500.c9f11a4b1948aac797ac.woff2",
     "static/media/inter-v12-cyrillic_latin-regular.woff2": "/job-aggregator/static/media/inter-v12-cyrillic_latin-regular.b0a21561d96f6b662763.woff2",
-    "static/media/logo.svg": "/job-aggregator/static/media/logo.132a7f6b9d326f9bb22cca4f0b6cb368.svg",
+    "static/media/logo.svg": "/job-aggregator/static/media/logo.582980f2850f1a684d20101898b51e90.svg",
     "static/media/filter.svg": "/job-aggregator/static/media/filter.a7cd53a2b6289d5412f9af40fc2f01fd.svg",
     "index.html": "/job-aggregator/index.html",
-    "static/media/location.svg": "/job-aggregator/static/media/location.9e22f822e1dc7f6897bfaf329182f15e.svg",
-    "static/media/search.svg": "/job-aggregator/static/media/search.06548291525b262aaf6bfddeb6eee7ea.svg",
+    "static/media/location.svg": "/job-aggregator/static/media/location.ce43ba39c3aae20f0ffb803fa4b6f101.svg",
+    "static/media/search.svg": "/job-aggregator/static/media/search.be4941ca436aaa63ed3d548660a3c16a.svg",
     "static/media/navBtn.svg": "/job-aggregator/static/media/navBtn.2e2ac3378fe9af27811ac311edc54f98.svg",
-    "main.d21e91af.css.map": "/job-aggregator/static/css/main.d21e91af.css.map",
-    "main.456a2998.js.map": "/job-aggregator/static/js/main.456a2998.js.map"
+    "main.d681fcc1.css.map": "/job-aggregator/static/css/main.d681fcc1.css.map",
+    "main.e5c4063d.js.map": "/job-aggregator/static/js/main.e5c4063d.js.map"
   },
   "entrypoints": [
-    "static/css/main.d21e91af.css",
-    "static/js/main.456a2998.js"
+    "static/css/main.d681fcc1.css",
+    "static/js/main.e5c4063d.js"
   ]
 }
