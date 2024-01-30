@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../context/authContext";
-import { useFetch } from "./useFetch";
+import axios from "axios";
 
 const getClientSecret = () => {
   const AUTH_CLIENT_SECRET = process.env.REACT_APP_API_AUTH_CLIENT_SECRET;
@@ -29,47 +29,40 @@ const getApiUrl = () => {
 };
 
 export const useApi = <T>(url: string, options?: RequestInit) => {
-  const [loading, setLoading] = useState(false);
+  
+  const [loading, setLoading] = useState(true);
+  const [response, setResponse] = useState<T | null>(null);
   const [error, setError] = useState<Error | null>(null);
-  const [innerUrl, setInnerUrl] = useState("");
 
-  const authData = useAuthContext();
-  const authLoading = authData.loading;
-  const authError = authData.error;
-  const accessToken = authData.accessToken;
-
-  const fetchData = useFetch<T>(innerUrl, {
-    ...options,
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      "X-Api-App-Id": getClientSecret(),
-      "x-secret-key": getSecretKey(),
-    },
-  });
-
-  const fetchLoading = fetchData.loading;
-  const fetchError = fetchData.error;
-  const response = fetchData.response;
+  const accessToken = useAuthContext();
 
   useEffect(() => {
-    if (!authLoading && !authError && accessToken) {
-      setInnerUrl(url && `${getApiUrl()}/${url}`);
+    if (!url || !accessToken) {
+      return;
     }
-  }, [authLoading, authError, accessToken, url]);
 
-  useEffect(() => {
-    setLoading(authLoading || fetchLoading);
-  }, [authLoading, fetchLoading]);
+    const controller = new AbortController();
 
-  useEffect(() => {
-    if (authError) {
-      setError(authError);
-    } else if (fetchError) {
-      setError(fetchError);
-    } else {
-      setError(null);
-    }
-  }, [authError, fetchError]);
+    axios<T>({
+      url: `${getApiUrl()}/${url}`,
+      method: options?.method,
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "X-Api-App-Id": getClientSecret(),
+        "x-secret-key": getSecretKey(),
+      },
+      signal: controller.signal
+    })
+    .then(res => {
+      setResponse(res.data);
+      setLoading(false);
+    })
+    .catch(error => setError(error));
+
+    return () => {
+      controller.abort();
+    };
+  }, [accessToken, url]);
 
   return { loading, response, error };
 };
